@@ -34,9 +34,9 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "kecamatan" || $this->uri->segment(2) == "desa") {
-                                                                                    echo "active";
-                                                                                } ?>">
+                    <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "daerah") {
+                                                    echo "active";
+                                                } ?>">
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Data Daerah
@@ -45,17 +45,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link <?php if ($this->uri->segment(3) == "kecamatan") {
-                                                                                    echo "active";
-                                                                                } ?>">
+                            <a href="<?= base_url('admin/daerah/kecamatan') ?>" class="nav-link <?php if ($this->uri->segment(3) == "kecamatan") {
+                                                                        echo "active";
+                                                                    } ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kecamatan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link <?php if ($this->uri->segment(3) == "desa") {
-                                                                                    echo "active";
-                                                                                } ?>">
+                            <a href="<?= base_url('admin/daerah/desa') ?>" class="nav-link <?php if ($this->uri->segment(3) == "desa") {
+                                                                        echo "active";
+                                                                    } ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Desa</p>
                             </a>
