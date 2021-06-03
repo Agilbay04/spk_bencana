@@ -6,3 +6,11 @@
     border-color: #20c997;
 	background-color: #20c997;
 }
+
+.login-card {
+    border-radius: 50px;
+}
+
+.login-card-body {
+    border-radius: 50px;
+}

@@ -105,6 +105,71 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
+
+        <!-- User Info Dropdown Menu -->
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                <span class="d-none d-md-inline">Alex Kuproy</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User image -->
+                <li class="user-header bg-gradient-teal">
+                    <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="Foto User">
+                    <p>
+                        <small><span title='admin' class='badge badge-danger text-uppercase font-weight-bold'>Admin</span></small>
+                        Alex Kuproy
+                    </p>
+                    <!-- <small>
+                        <?php if ($admin['DATE_ADM'] != 0) { ?>
+                            Terdaftar Sejak <?= date('d F Y', $admin['DATE_ADM']); ?>
+                        <?php } else { ?>
+                            Terdaftar Sejak <span title='caption' class='badge badge-secondary'></span>
+                        <?php } ?>
+                    </small> -->
+                </li>
+                <!-- Menu Body -->
+                <!-- Menu Footer-->
+                <li class="user-footer d-flex">
+                    <a href="<?= base_url('admin/profile'); ?>" class="btn btn-sm bg-gradient-teal text-uppercase font-weight-bold">
+                        <i class="fas fa-user"></i>
+                        Profil
+                    </a>
+                    <button type="button" class="btn btn-sm bg-gradient-danger ml-auto text-uppercase font-weight-bold" data-toggle="modal" data-target="#logout-modal">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Keluar
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </li>
     </ul>
 </nav>
 <!-- /.navbar -->
+
+<!-- modal form -->
+<div class="modal fade" id="logout-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-teal">
+                <h4 class="modal-title font-weight-bold text-uppercase">Logout</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah anda ingin keluar aplikasi?</p>
+            </div>
+            <form action="<?= base_url('admin/auth') ?>" method="post">
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default text-uppercase font-weight-bold" data-dismiss="modal"><i class="fas fa-ban"></i> Tidak</button>
+                    <button type="submit" class="btn bg-gradient-teal text-uppercase font-weight-bold"><i class="fas fa-sign-out-alt"></i> Ya</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
