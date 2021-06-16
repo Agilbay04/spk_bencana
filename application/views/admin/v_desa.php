@@ -34,20 +34,20 @@
                             <thead>
                                 <tr class="align-items-center text-center">
                                     <th>No</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
+                                    <th>ID Desa</th>
+                                    <th>Nama Desa</th>
+                                    <th>ID Kecamatan</th>
+                                    <th>Populasi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
+                                    <td>DS00001</td>
+                                    <td>Cakru</td>
+                                    <td>KEC00001</td>
+                                    <td>120</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button class="btn btn-sm bg-gradient-teal m-1" title="edit data">
@@ -63,9 +63,10 @@
                             <tfoot>
                                 <tr class="align-items-center text-center">
                                     <th>No</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
+                                    <th>ID Desa</th>
+                                    <th>Nama Desa</th>
+                                    <th>ID Kecamatan</th>
+                                    <th>Populasi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -97,14 +98,25 @@
                 <form role="form">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <label for="exampleInputEmail1">ID Desa</label>
+                            <input type="text" class="form-control" id="" placeholder="ID Desa..." disabled>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="exampleInputPassword1">Nama Desa</label>
+                            <input type="text" class="form-control" id="" placeholder="Nama Desa...">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputPassword1">Kecamatan</label>
+                            <select name="" class="form-control" id="">
+                                <option value="" selected>--Pilih Kecamatan--</option>
+                                <option value="KEC00001">Kencong</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Populasi</label>
+                            <input type="number" class="form-control" id="" placeholder="Jumlah populasi...">
+                        </div>
+                        <!-- <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -115,7 +127,7 @@
                                     <span class="input-group-text" id="">Upload</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- /.card-body -->
                 </form>

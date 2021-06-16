@@ -48,6 +48,10 @@
 <script src="<?= base_url() ?>assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>assets/dist/js/demo.js"></script>
+<!-- Toastr -->
+<script src="<?= base_url() ?>assets/plugins/toastr/toastr.min.js"></script>
+<!-- Main js -->
+<!-- <script src="<?= base_url() ?>assets/dist/js/main.js"></script> -->
 <!-- DataTables -->
 <script src="<?= base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -68,6 +72,21 @@
             "autoWidth": false,
             "responsive": true,
         });
+    });
+</script>
+
+<!-- Alert -->
+<script>
+    $(function() {
+        const flashData = $('.flash-data').data('flashdata');
+
+        if (flashData == 'add') {
+            toastr.success('Berhasil menambahkan data!')
+        } else if (flashData == 'edit') {
+            toastr.info('Data berhasil diubah!')
+        } else if (flashData == 'delete') {
+            toastr.error('Data berhasil dihapus!')
+        }
     });
 </script>
 </body>

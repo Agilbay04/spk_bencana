@@ -21,14 +21,14 @@
                     <!-- small box -->
                     <div class="small-box bg-gradient-teal">
                         <div class="inner">
-                            <h3>5</h3>
+                            <h3><?= $jml_kec; ?></h3>
 
                             <p>Jumlah Kecamatan</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-search-location"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/daerah/kecamatan'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -53,14 +53,14 @@
                     <!-- small box -->
                     <div class="small-box bg-gradient-teal">
                         <div class="inner">
-                            <h3>15</h3>
+                            <h3><?= $jml_kt; ?></h3>
 
                             <p>Data Kriteria</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-boxes"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/kriteria'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
