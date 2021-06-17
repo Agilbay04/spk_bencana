@@ -37,7 +37,7 @@
                     <!-- small box -->
                     <div class="small-box bg-gradient-teal">
                         <div class="inner">
-                            <h3>60</h3>
+                            <h3><?= $jml_ds; ?></h3>
 
                             <p>Jumlah Desa</p>
                         </div>
