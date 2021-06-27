@@ -40,5 +40,24 @@ class M_kriteria extends CI_Model
         $this->db->where('id_kriteria', $id);
         $this->db->delete('kriteria');
     }
+
+    /** Mengambil id himpunan */
+    public function idhimpunan()
+    {
+        $this->db->select('*');
+        $this->db->from('himpunan_kriteria');
+        $this->db->order_by('no', 'DESC');
+        $this->db->limit(1);
+        return $this->db->get();
+    }
+
+    /** Mengambil data himpunan kriteria */
+    public function gethimpunan()
+    {
+        $this->db->select('*');
+        $this->db->from('himpunan_kriteria');
+        $this->db->join('kriteria', 'kriteria.id_kriteria=himpunan_kriteria.id_kriteria');
+        return $this->db->get();
+    }
 }
 ?>

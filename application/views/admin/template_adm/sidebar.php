@@ -54,8 +54,39 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('admin/kriteria'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "kriteria") {
+                <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "kriteria") {
+                                                        echo "menu-open";
+                                                    } ?>">
+                    <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "kriteria") {
+                                                    echo "active";
+                                                } ?>">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Data Kriteria
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kriteria') ?>" class="nav-link <?php if ($this->uri->segment(3) != "himpunan") {
+                                                                                                    echo "active";
+                                                                                                } ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kriteria</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kriteria/himpunan') ?>" class="nav-link <?php if ($this->uri->segment(3) == "himpunan") {
+                                                                                                echo "active";
+                                                                                            } ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Range Kriteria</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="<?= base_url('admin/kriteria'); ?>" class="nav-link <?php if ($this->uri->segment(3) != "kriteria") {
                                                                                         echo "active";
                                                                                     } ?>">
                         <i class="nav-icon fas fa-boxes"></i>
@@ -63,7 +94,7 @@
                             Data Kriteria
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="<?= base_url('admin/rating'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "rating") {
                                                                                     echo "active";

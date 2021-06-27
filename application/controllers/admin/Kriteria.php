@@ -130,4 +130,39 @@ class Kriteria extends CI_Controller
         $this->session->set_flashdata('message', 'delete');
         redirect('admin/kriteria');
     }
+
+    /** Range kriteria */
+    public function himpunan()
+    {
+        $data['title'] = 'SPK-BP | Himpunan Kriteria';
+        $data['judul'] = 'Himpunan Kriteria';
+        
+        /** Mengambil data kriteria */
+        $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
+
+        /** Menampilkan data himpunan kriteria */
+        $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
+
+        /** Perikasa apakah ada data di tabel */
+        $countData = $this->M_kriteria->idhimpunan()->num_rows();
+
+        /** Ambil id terakhir */
+        $getID = $this->M_kriteria->idhimpunan()->row_array();
+
+        /** Membuat uniq id */
+        if ($countData > 0) {
+            $id_himpunan = autonumber($getID['no'], 2, 13);
+        } else {
+            $id_himpunan = "HIM000000000001";
+        }
+
+        /** Mengirim id ke view */
+        $data['id_h'] = $id_himpunan;
+
+        $this->load->view('admin/template_adm/header', $data);
+        $this->load->view('admin/template_adm/navbar');
+        $this->load->view('admin/template_adm/sidebar');
+        $this->load->view('admin/v_himpunan', $data);
+        $this->load->view('admin/template_adm/footer');
+    }
 }
