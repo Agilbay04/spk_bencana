@@ -59,5 +59,11 @@ class M_kriteria extends CI_Model
         $this->db->join('kriteria', 'kriteria.id_kriteria=himpunan_kriteria.id_kriteria');
         return $this->db->get();
     }
+
+    /** Insert data ke tabel himpunan kriteria */
+    public function inserthimpunan($dt_himpunan)
+    {
+        $this->db->insert('himpunan_kriteria', $dt_himpunan);
+    }
 }
 ?>

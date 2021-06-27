@@ -54,14 +54,14 @@
                                         <td><?= $himp['no']; ?></td>
                                         <td><?= $himp['nm_kriteria']; ?></td>
                                         <td><?= $himp['range']; ?></td>
-                                        <td><?= $kt['nilai']; ?></td>
-                                        <td><?= date('d M Y, H:i', strtotime($kt['time_in_kt'])); ?></td>
+                                        <td><?= $himp['nilai']; ?></td>
+                                        <td><?= date('d M Y, H:i', strtotime($himp['time_in_himp'])); ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <button class="btn btn-sm bg-gradient-teal m-1" data-toggle="modal" data-target="#edit-modal<?= $kt['id_kriteria']; ?>" title="edit data">
+                                                <button class="btn btn-sm bg-gradient-teal m-1" data-toggle="modal" data-target="#edit-modal<?= $himp['no']; ?>" title="edit data">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <button class="btn btn-sm bg-gradient-danger m-1" data-toggle="modal" data-target="#del-modal<?= $kt['id_kriteria']; ?>" title="hapus data">
+                                                <button class="btn btn-sm bg-gradient-danger m-1" data-toggle="modal" data-target="#del-modal<?= $himp['no']; ?>" title="hapus data">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </div>
@@ -124,10 +124,12 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Range</label>
                             <input type="text" name="range" class="form-control" id="" placeholder="Range...">
+                            <?= form_error('range', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nilai</label>
-                            <input type="text" pattern="[1-9,.]" name="nilai" class="form-control" id="" placeholder="Nilai...">
+                            <input type="text" name="nilai" class="form-control" id="" placeholder="Nilai...">
+                            <?= form_error('nilai', '<small class="text-danger">', '</small>') ?>
                         </div>
                     </div>
                     <!-- /.card-body -->

@@ -136,7 +136,7 @@ class Kriteria extends CI_Controller
     {
         $data['title'] = 'SPK-BP | Himpunan Kriteria';
         $data['judul'] = 'Himpunan Kriteria';
-        
+
         /** Mengambil data kriteria */
         $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
 
@@ -151,7 +151,7 @@ class Kriteria extends CI_Controller
 
         /** Membuat uniq id */
         if ($countData > 0) {
-            $id_himpunan = autonumber($getID['no'], 2, 13);
+            $id_himpunan = autonumber($getID['no'], 3, 12);
         } else {
             $id_himpunan = "HIM000000000001";
         }
@@ -164,5 +164,66 @@ class Kriteria extends CI_Controller
         $this->load->view('admin/template_adm/sidebar');
         $this->load->view('admin/v_himpunan', $data);
         $this->load->view('admin/template_adm/footer');
+    }
+
+    public function tbh_himpunan()
+    {
+        /** Validasi form */
+        $this->form_validation->set_rules('kriteria', 'Kriteria', 'trim|required', [
+            'required' => 'Kolom ini wajib diisi'
+        ]);
+
+        $this->form_validation->set_rules('range', 'Range', 'trim|required', [
+            'required' => 'Kolom ini wajib diisi'
+        ]);
+
+        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required', [
+            'required' => 'Kolom ini wajib diisi'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'SPK-BP | Himpunan Kriteria';
+            $data['judul'] = 'Himpunan Kriteria';
+
+            /** Mengambil data kriteria */
+            $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
+
+            /** Menampilkan data himpunan kriteria */
+            $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
+
+            /** Perikasa apakah ada data di tabel */
+            $countData = $this->M_kriteria->idhimpunan()->num_rows();
+
+            /** Ambil id terakhir */
+            $getID = $this->M_kriteria->idhimpunan()->row_array();
+
+            /** Membuat uniq id */
+            if ($countData > 0) {
+                $id_himpunan = autonumber($getID['no'], 3, 12);
+            } else {
+                $id_himpunan = "HIM000000000001";
+            }
+
+            /** Mengirim id ke view */
+            $data['id_h'] = $id_himpunan;
+
+            $this->load->view('admin/template_adm/header', $data);
+            $this->load->view('admin/template_adm/navbar');
+            $this->load->view('admin/template_adm/sidebar');
+            $this->load->view('admin/v_himpunan', $data);
+            $this->load->view('admin/template_adm/footer');
+        } else {
+            /** Menambahkan data ke tabel kriteria */
+            $dt_himpunan = [
+                'no' => $this->input->post('id_h'),
+                'id_kriteria' => htmlspecialchars($this->input->post('kriteria')),
+                'range' => htmlspecialchars($this->input->post('range')),
+                'nilai' => htmlspecialchars($this->input->post('nilai'))
+            ];
+
+            $this->M_kriteria->inserthimpunan($dt_himpunan);
+            $this->session->set_flashdata('message', 'add');
+            redirect('admin/kriteria/himpunan');
+        }
     }
 }
