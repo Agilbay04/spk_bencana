@@ -184,27 +184,36 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Desa</label>
-                                <input type="text" name="nm_ds" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['nm_desa']; ?>" readonly>
-                                <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
+                                <select name="nm_ds" class="form-control" id="nm_ds1" disabled>
+                                    <option value="" selected><span class="text-muted">--Pilih Desa--</span></option>
+                                    <?php foreach ($desa as $ds) : ?>
+                                        <option value="<?= $ds['id_desa']; ?>" <?= $ds['id_desa'] == $kls['id_desa'] ? "selected" : null ?>><?= $ds['nm_desa']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kecamatan</label>
-                                <input type="text" name="nm_kec" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['nm_kecamatan']; ?>" readonly>
+                                <select name="nm_kec" class="form-control" id="nm_kec1" disabled>
+                                    <option value="" selected><span class="text-muted">--Pilih Kecamatan--</span></option>
+                                    <?php foreach ($kec as $k) : ?>
+                                        <option value="<?= $k['id_kecamatan']; ?>" <?= $k['id_kecamatan'] == $kls['id_kecamatan'] ? "selected" : null ?>><?= $k['nm_kecamatan']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                 <?= form_error('nm_kec', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
-                                <input type="number" name="jml_ketersediaan" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= set_value('jml_ketersediaan'); ?>" required>
+                                <input type="number" name="jml_ketersediaan" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= $kls['jml_ketersediaan']; ?>" required>
                                 <?= form_error('jml_ketersediaan', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Akses</label>
-                                <input type="number" name="jml_akses" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= set_value('jml_akses'); ?>" required>
+                                <input type="number" name="jml_akses" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= $kls['jml_akses']; ?>" required>
                                 <?= form_error('jml_akses', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
-                                <input type="number" name="jml_pemanfaatan" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= set_value('jml_pemanfaatan'); ?>" required>
+                                <input type="number" name="jml_pemanfaatan" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= $kls['jml_pemanfaatan']; ?>" required>
                                 <?= form_error('jml_pemanfaatan', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
