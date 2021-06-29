@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2021 at 07:03 PM
+-- Generation Time: Jun 29, 2021 at 06:43 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,11 +32,19 @@ CREATE TABLE `desa` (
   `nm_desa` varchar(50) NOT NULL,
   `id_kecamatan` varchar(15) NOT NULL,
   `kd_pos` char(5) NOT NULL,
-  `padi` int(11) NOT NULL,
-  `jagung` int(11) NOT NULL,
-  `ubi_kayu` int(11) NOT NULL,
-  `populasi` int(11) NOT NULL
+  `prod_padi` int(11) NOT NULL,
+  `prod_jagung` int(11) NOT NULL,
+  `populasi` int(11) NOT NULL,
+  `time_in_ds` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `desa`
+--
+
+INSERT INTO `desa` (`id_desa`, `nm_desa`, `id_kecamatan`, `kd_pos`, `prod_padi`, `prod_jagung`, `populasi`, `time_in_ds`) VALUES
+('DS0000000000001', 'Tegal Gede', 'KEC000000000001', '68124', 5, 7, 6000, '2021-06-28 13:44:05'),
+('DS0000000000002', 'Cakru', 'KEC000000000002', '68155', 4, 2, 4000, '2021-06-28 13:43:52');
 
 -- --------------------------------------------------------
 
@@ -61,8 +69,30 @@ CREATE TABLE `himpunan_kriteria` (
   `id_kriteria` varchar(15) NOT NULL,
   `range` varchar(50) NOT NULL,
   `nilai` double NOT NULL,
-  `keterangan` varchar(50) NOT NULL
+  `keterangan` varchar(50) NOT NULL,
+  `time_in_himp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `himpunan_kriteria`
+--
+
+INSERT INTO `himpunan_kriteria` (`no`, `id_kriteria`, `range`, `nilai`, `keterangan`, `time_in_himp`) VALUES
+('HIM000000000001', 'KT0000000000001', 'x&lt;=25', 0.2, '', '2021-06-28 12:42:47'),
+('HIM000000000002', 'KT0000000000001', '25&lt;x&lt;=30', 0.4, '', '2021-06-27 16:26:23'),
+('HIM000000000003', 'KT0000000000001', '30&lt;x&lt;=35', 0.6, '', '2021-06-27 16:26:31'),
+('HIM000000000004', 'KT0000000000001', '35&lt;x&lt;=43', 0.8, '', '2021-06-27 16:26:34'),
+('HIM000000000005', 'KT0000000000001', 'x&gt;=44', 1, '', '2021-06-27 16:26:38'),
+('HIM000000000006', 'KT0000000000002', 'x&lt;=3', 0.2, '', '2021-06-27 16:27:31'),
+('HIM000000000007', 'KT0000000000002', '3&lt;x&lt;=5', 0.4, '', '2021-06-27 16:28:04'),
+('HIM000000000008', 'KT0000000000002', '5&lt;x&lt;=10', 0.6, '', '2021-06-27 16:28:46'),
+('HIM000000000009', 'KT0000000000002', '10&lt;x&lt;=14', 0.8, '', '2021-06-27 16:29:30'),
+('HIM000000000010', 'KT0000000000002', 'x&gt;=15', 1, '', '2021-06-27 16:29:56'),
+('HIM000000000011', 'KT0000000000003', 'x&lt;=3', 0.2, '', '2021-06-27 16:30:49'),
+('HIM000000000012', 'KT0000000000003', '3&lt;x&lt;=6', 0.4, '', '2021-06-27 16:31:24'),
+('HIM000000000013', 'KT0000000000003', '6&lt;x&lt;=15', 0.6, '', '2021-06-27 16:32:17'),
+('HIM000000000014', 'KT0000000000003', '15&lt;x&lt;=18', 0.8, '', '2021-06-27 16:32:41'),
+('HIM000000000015', 'KT0000000000003', 'x&gt;=19', 1, '', '2021-06-27 16:33:04');
 
 -- --------------------------------------------------------
 
@@ -120,8 +150,17 @@ CREATE TABLE `klasifikasi` (
   `id_kecamatan` varchar(15) NOT NULL,
   `jml_ketersediaan` int(11) NOT NULL,
   `jml_akses` int(11) NOT NULL,
-  `jml_pemanfaatan` int(11) NOT NULL
+  `jml_pemanfaatan` int(11) NOT NULL,
+  `time_in_kls` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `klasifikasi`
+--
+
+INSERT INTO `klasifikasi` (`id_klasifikasi`, `id_desa`, `id_kecamatan`, `jml_ketersediaan`, `jml_akses`, `jml_pemanfaatan`, `time_in_kls`) VALUES
+('KLS000000000001', 'DS0000000000001', 'KEC000000000001', 4, 5, 11, '2021-06-29 04:35:46'),
+('KLS000000000002', 'DS0000000000002', 'KEC000000000002', 4, 5, 4, '2021-06-29 04:39:58');
 
 -- --------------------------------------------------------
 
@@ -140,11 +179,9 @@ CREATE TABLE `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nm_kriteria`, `time_in_kt`) VALUES
-('KT0000000000001', 'Sangat Kurang', '2021-06-16 16:43:32'),
-('KT0000000000002', 'Kurang', '2021-06-16 16:32:55'),
-('KT0000000000003', 'Normal', '2021-06-16 16:34:01'),
-('KT0000000000004', 'Baik', '2021-06-16 16:56:56'),
-('KT0000000000005', 'Sangat Baik', '2021-06-16 16:46:36');
+('KT0000000000001', 'Akses Pangan', '2021-06-27 13:30:53'),
+('KT0000000000002', 'Ketersediaan Pangan', '2021-06-27 13:31:31'),
+('KT0000000000003', 'Pemanfaatan Pangan', '2021-06-27 13:31:48');
 
 -- --------------------------------------------------------
 
