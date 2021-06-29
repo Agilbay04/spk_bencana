@@ -16,6 +16,7 @@ class M_kriteria extends CI_Model
     /** Mengambil data dari tabel kriteria */
     public function getkt()
     {
+        $this->db->order_by('id_kriteria', 'DESC');
         $sql = $this->db->get('kriteria');
         return $sql;
     }
@@ -57,6 +58,7 @@ class M_kriteria extends CI_Model
         $this->db->select('*');
         $this->db->from('himpunan_kriteria');
         $this->db->join('kriteria', 'kriteria.id_kriteria=himpunan_kriteria.id_kriteria');
+        $this->db->order_by('no', 'DESC');
         return $this->db->get();
     }
 

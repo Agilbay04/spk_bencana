@@ -45,7 +45,7 @@ class Klasifikasi extends CI_Controller
         $this->load->view('admin/v_klasifikasi', $data);
         $this->load->view('admin/template_adm/footer');
     }
-
+    
     public function get_desa()
     {
         $id = $this->input->post('id');
@@ -124,5 +124,14 @@ class Klasifikasi extends CI_Controller
             redirect('admin/klasifikasi');
             ;
         }
+    }
+
+    public function del_klasifikasi()
+    {
+        /** Menghapus data tabel klasifikasi */
+        $id_kls = $this->input->post('id_kls');
+        $this->M_klasifikasi->deletekls($id_kls);
+        $this->session->set_flashdata('message', 'delete');
+        redirect('admin/klasifikasi');
     }
 }

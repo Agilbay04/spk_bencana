@@ -20,6 +20,7 @@ class M_klasifikasi extends CI_Model
         $this->db->from('klasifikasi');
         $this->db->join('desa', 'desa.id_desa=klasifikasi.id_desa');
         $this->db->join('kecamatan', 'kecamatan.id_kecamatan=klasifikasi.id_kecamatan');
+        $this->db->order_by('id_klasifikasi', 'DESC');
         return $this->db->get();
     }
 
@@ -27,6 +28,13 @@ class M_klasifikasi extends CI_Model
     public function insertkls($dt_kls)
     {
         $this->db->insert('klasifikasi', $dt_kls);
+    }
+
+    /** Hapus data tabel klasifikasi */
+    public function deletekls($id_kls)
+    {
+        $this->db->where('id_klasifikasi', $id_kls);
+        $this->db->delete('klasifikasi');
     }
 }
 ?>

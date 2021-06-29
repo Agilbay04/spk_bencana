@@ -16,6 +16,7 @@ class M_kecamatan extends CI_Model
     /** Mengambil data dari tabel kecamatan */
     public function getkec()
     {
+        $this->db->order_by('id_kecamatan', 'DESC');
         $sql = $this->db->get('kecamatan');
         return $sql;
     }

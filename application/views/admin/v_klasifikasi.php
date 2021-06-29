@@ -163,3 +163,92 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<?php foreach ($klasifikasi as $kls) : ?>
+    <!-- modal edit form -->
+    <div class="modal fade" id="edit-modal<?= $kls['id_klasifikasi']; ?>">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-teal">
+                    <h4 class="modal-title font-weight-bold text-uppercase">Edit Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url('admin/klasifikasi/edit_klasifikasi'); ?>" method="POST">
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">ID Klasifikasi</label>
+                                <input type="text" name="id_kls" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['id_klasifikasi']; ?>" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama Desa</label>
+                                <input type="text" name="nm_ds" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['nm_desa']; ?>" readonly>
+                                <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama Kecamatan</label>
+                                <input type="text" name="nm_kec" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['nm_kecamatan']; ?>" readonly>
+                                <?= form_error('nm_kec', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
+                                <input type="number" name="jml_ketersediaan" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= set_value('jml_ketersediaan'); ?>" required>
+                                <?= form_error('jml_ketersediaan', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Jumlah Akses</label>
+                                <input type="number" name="jml_akses" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= set_value('jml_akses'); ?>" required>
+                                <?= form_error('jml_akses', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
+                                <input type="number" name="jml_pemanfaatan" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= set_value('jml_pemanfaatan'); ?>" required>
+                                <?= form_error('jml_pemanfaatan', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default text-uppercase font-weight-bold" data-dismiss="modal"><i class="fas fa-ban"></i> Tutup</button>
+                        <button type="submit" class="btn bg-gradient-teal text-uppercase font-weight-bold"><i class="fas fa-save"></i> Simpan</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- modal delete data -->
+    <div class="modal fade" id="del-modal<?= $kls['id_klasifikasi']; ?>">
+        <div class="modal-dialog modal-xs">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-teal">
+                    <h4 class="modal-title font-weight-bold text-uppercase">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url('admin/klasifikasi/del_klasifikasi'); ?>" method="POST">
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <input type="text" name="id_kls" value="<?= $kls['id_klasifikasi']; ?>" hidden>
+                            <p>Apakah anda ingin menghapus data ini?</span></p>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default text-uppercase font-weight-bold" data-dismiss="modal"><i class="fas fa-ban"></i> Tidak</button>
+                        <button type="submit" class="btn bg-gradient-danger text-uppercase font-weight-bold"><i class="fas fa-trash"></i> Ya</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>

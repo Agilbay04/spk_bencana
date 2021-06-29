@@ -28,6 +28,7 @@ class M_desa extends CI_Model
         $this->db->select('*');
         $this->db->from('desa');
         $this->db->join('kecamatan', 'kecamatan.id_kecamatan=desa.id_kecamatan');
+        $this->db->order_by('id_desa', 'DESC');
         $sql = $this->db->get();
         return $sql;
     }
