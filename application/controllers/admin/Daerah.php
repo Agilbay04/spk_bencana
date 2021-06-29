@@ -189,10 +189,6 @@ class Daerah extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_ubi', 'Prd_ubi', 'trim|required', [
-            'required' => 'Kolom ini wajib diisi'
-        ]);
-
         $this->form_validation->set_rules('populasi', 'Populasi', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
@@ -235,9 +231,8 @@ class Daerah extends CI_Controller
                 'nm_desa' => htmlspecialchars($this->input->post('nm_ds')),
                 'id_kecamatan' => htmlspecialchars($this->input->post('kec')),
                 'kd_pos' => htmlspecialchars($this->input->post('kd_pos')),
-                'padi' => htmlspecialchars($this->input->post('prd_padi')),
-                'jagung' => htmlspecialchars($this->input->post('prd_jagung')),
-                'ubi_kayu' => htmlspecialchars($this->input->post('prd_ubi')),
+                'prod_padi' => htmlspecialchars($this->input->post('prd_padi')),
+                'prod_jagung' => htmlspecialchars($this->input->post('prd_jagung')),
                 'populasi' => htmlspecialchars($this->input->post('populasi'))
             ];
 
@@ -270,10 +265,6 @@ class Daerah extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_ubi', 'Prd_ubi', 'trim|required', [
-            'required' => 'Kolom ini wajib diisi'
-        ]);
-
         $this->form_validation->set_rules('populasi', 'Populasi', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
@@ -302,9 +293,8 @@ class Daerah extends CI_Controller
                 'nm_desa' => htmlspecialchars($this->input->post('nm_ds')),
                 'id_kecamatan' => htmlspecialchars($this->input->post('kec')),
                 'kd_pos' => htmlspecialchars($this->input->post('kd_pos')),
-                'padi' => htmlspecialchars($this->input->post('prd_padi')),
-                'jagung' => htmlspecialchars($this->input->post('prd_jagung')),
-                'ubi_kayu' => htmlspecialchars($this->input->post('prd_ubi')),
+                'prod_padi' => htmlspecialchars($this->input->post('prd_padi')),
+                'prod_jagung' => htmlspecialchars($this->input->post('prd_jagung')),
                 'populasi' => htmlspecialchars($this->input->post('populasi'))
             ];
 

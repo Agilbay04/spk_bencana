@@ -71,7 +71,7 @@
                         <div class="inner">
                             <h3>5</h3>
 
-                            <p>Data Rating</p>
+                            <p>Perangkingan</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-star"></i>

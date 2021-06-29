@@ -13,6 +13,15 @@ class M_desa extends CI_Model
         return $this->db->get();
     }
 
+    /** Mengambil data json desa */
+    public function get_dtjson($id)
+    {
+        $sql = $this->db->get_where('desa', [
+            'id_kecamatan' => $id
+        ]);
+        return $sql;
+    }
+
     /** Mengambil data desa */
     public function getds()
     {

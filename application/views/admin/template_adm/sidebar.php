@@ -60,7 +60,7 @@
                     <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "kriteria") {
                                                     echo "active";
                                                 } ?>">
-                        <i class="nav-icon fas fa-globe"></i>
+                        <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Data Kriteria
                             <i class="right fas fa-angle-left"></i>
@@ -85,23 +85,23 @@
                         </li>
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="<?= base_url('admin/kriteria'); ?>" class="nav-link <?php if ($this->uri->segment(3) != "kriteria") {
-                                                                                        echo "active";
-                                                                                    } ?>">
-                        <i class="nav-icon fas fa-boxes"></i>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/klasifikasi'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "klasifikasi") {
+                                                                                    echo "active";
+                                                                                } ?>">
+                        <i class="nav-icon fas fa-sort"></i>
                         <p>
-                            Data Kriteria
+                            Klasifikasi
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/rating'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "rating") {
                                                                                     echo "active";
                                                                                 } ?>">
                         <i class="nav-icon fas fa-star"></i>
                         <p>
-                            Data Rating
+                            Perangkingan
                         </p>
                     </a>
                 </li>

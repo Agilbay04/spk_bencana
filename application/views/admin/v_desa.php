@@ -45,7 +45,6 @@
                                     <th>Kode Pos</th>
                                     <th>Produksi Padi</th>
                                     <th>Produksi Jagung</th>
-                                    <th>Produksi Ubi Kayu</th>
                                     <th>Populasi</th>
                                     <th>Terakhir Diupdate</th>
                                     <th>Aksi</th>
@@ -59,9 +58,8 @@
                                         <td><?= $ds['nm_desa']; ?></td>
                                         <td><?= $ds['nm_kecamatan']; ?></td>
                                         <td><?= $ds['kd_pos']; ?></td>
-                                        <td><?= $ds['padi']; ?> kg/tahun</td>
-                                        <td><?= $ds['jagung']; ?> kg/tahun</td>
-                                        <td><?= $ds['ubi_kayu']; ?> kg/tahun</td>
+                                        <td><?= $ds['prod_padi']; ?> kwintal</td>
+                                        <td><?= $ds['prod_jagung']; ?> kwintal</td>
                                         <td><?= $ds['populasi']; ?> orang</td>
                                         <td><?= date('d M Y, H:i', strtotime($ds['time_in_ds'])); ?></td>
                                         <td>
@@ -86,7 +84,6 @@
                                     <th>Kode Pos</th>
                                     <th>Produksi Padi</th>
                                     <th>Produksi Jagung</th>
-                                    <th>Produksi Ubi Kayu</th>
                                     <th>Populasi</th>
                                     <th>Terakhir Diupdate</th>
                                     <th>Aksi</th>
@@ -147,7 +144,7 @@
                             <label for="exampleInputPassword1">Produksi Padi</label>
                             <div class="d-flex">
                                 <input type="number" name="prd_padi" class="form-control" id="" value="<?= set_value('prd_padi') ?>" placeholder="Produksi padi...">
-                                <p class="m-2 text-bold">kg/tahun</p>
+                                <p class="m-2 text-bold">kwintal</p>
                             </div>
                             <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
                         </div>
@@ -155,17 +152,9 @@
                             <label for="exampleInputPassword1">Produksi Jagung</label>
                             <div class="d-flex">
                                 <input type="number" name="prd_jagung" class="form-control" id="" value="<?= set_value('prd_jagung') ?>" placeholder="Produksi jagung...">
-                                <p class="m-2 text-bold">kg/tahun</p>
+                                <p class="m-2 text-bold">kwintal</p>
                             </div>
                             <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Produksi Ubi Kayu</label>
-                            <div class="d-flex">
-                                <input type="number" name="prd_ubi" class="form-control" id="" value="<?= set_value('prd_ubi') ?>" placeholder="Produksi ubi kayu...">
-                                <p class="m-2 text-bold">kg/tahun</p>
-                            </div>
-                            <?= form_error('prd_ubi', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Populasi</label>
@@ -245,26 +234,18 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Padi</label>
                                 <div class="d-flex">
-                                    <input type="number" name="prd_padi" class="form-control" id="" value="<?= $ds['padi'] ?>" placeholder="Produksi padi...">
-                                    <p class="m-2 text-bold">kg/tahun</p>
+                                    <input type="number" name="prd_padi" class="form-control" id="" value="<?= $ds['prod_padi'] ?>" placeholder="Produksi padi...">
+                                    <p class="m-2 text-bold">kwintal</p>
                                 </div>
                                 <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Jagung</label>
                                 <div class="d-flex">
-                                    <input type="number" name="prd_jagung" class="form-control" id="" value="<?= $ds['jagung'] ?>" placeholder="Produksi jagung...">
-                                    <p class="m-2 text-bold">kg/tahun</p>
+                                    <input type="number" name="prd_jagung" class="form-control" id="" value="<?= $ds['prod_jagung'] ?>" placeholder="Produksi jagung...">
+                                    <p class="m-2 text-bold">kwintal</p>
                                 </div>
                                 <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Produksi Ubi Kayu</label>
-                                <div class="d-flex">
-                                    <input type="number" name="prd_ubi" class="form-control" id="" value="<?= $ds['ubi_kayu'] ?>" placeholder="Produksi ubi kayu...">
-                                    <p class="m-2 text-bold">kg/tahun</p>
-                                </div>
-                                <?= form_error('prd_ubi', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Populasi</label>

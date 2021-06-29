@@ -89,6 +89,30 @@
         }
     });
 </script>
+
+<!-- Chain select kecamatan and desa -->
+<script>
+    $(document).ready(function() {
+        $('#nm_kec').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                url: "<?= base_url('admin/klasifikasi/get_desa'); ?>",
+                method: "POST",
+                dataType: "JSON",
+                data: {
+                    id: id
+                },
+                success: function(array) {
+                    var html = '';
+                    for (let i = 0; i < array.length; i++) {
+                        html += `<option value=` + array[i].id_desa + `>` + array[i].nm_desa + `</option>`
+                    }
+                    $('#nm_ds').html(html);
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -65,5 +65,20 @@ class M_kriteria extends CI_Model
     {
         $this->db->insert('himpunan_kriteria', $dt_himpunan);
     }
+
+    /** Update data tabel himpunan kriteria */
+    public function updatehimpunan($dt_himpunan, $id_h)
+    {
+        $this->db->set($dt_himpunan);
+        $this->db->where('no', $id_h);
+        $this->db->update('himpunan_kriteria');
+    }
+
+    /** Hapus data tabel himpunan kriteria */
+    public function deletehimpunan($id_h)
+    {
+        $this->db->where('no', $id_h);
+        $this->db->delete('himpunan_kriteria');
+    }
 }
 ?>
