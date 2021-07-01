@@ -141,11 +141,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID Kecamatan</label>
-                                <input type="text" name="id_kec" class="form-control" id="" placeholder="ID Kecamatan..." value="<?= $k['id_kecamatan']; ?>" readonly>
+                                <input type="text" name="id_kec1" class="form-control" id="" placeholder="ID Kecamatan..." value="<?= $k['id_kecamatan']; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kecamatan</label>
-                                <input type="text" name="nm_kec" class="form-control" id="" placeholder="Nama kecamatan..." value="<?= $k['nm_kecamatan'] ?>" required>
+                                <input type="text" name="nm_kec1" class="form-control" id="" placeholder="Nama kecamatan..." value="<?= $k['nm_kecamatan'] ?>" required>
                                 <?= form_error('nm_kec', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>

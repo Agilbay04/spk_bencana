@@ -207,16 +207,16 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID Desa</label>
-                                <input type="text" name="id_ds" class="form-control" id="" placeholder="ID Desa..." value="<?= $ds['id_desa']; ?>" readonly>
+                                <input type="text" name="id_ds1" class="form-control" id="" placeholder="ID Desa..." value="<?= $ds['id_desa']; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Desa</label>
-                                <input type="text" name="nm_ds" class="form-control" id="" value="<?= $ds['nm_desa'] ?>" placeholder="Nama Desa...">
+                                <input type="text" name="nm_ds1" class="form-control" id="" value="<?= $ds['nm_desa'] ?>" placeholder="Nama Desa...">
                                 <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Kecamatan</label>
-                                <select name="kec" class="form-control" id="">
+                                <select name="kec1" class="form-control" id="">
                                     <option value="" selected><span class="text-muted">--Pilih Kecamatan--</span></option>
                                     <?php foreach ($kec as $k) : ?>
                                         <option value="<?= $k['id_kecamatan']; ?>" <?= $k['id_kecamatan'] == $ds['id_kecamatan'] ? "selected" : null ?>>
@@ -228,13 +228,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Kode Pos</label>
-                                <input type="number" name="kd_pos" class="form-control" id="" value="<?= $ds['kd_pos'] ?>" placeholder="Kode pos...">
+                                <input type="number" name="kd_pos1" class="form-control" id="" value="<?= $ds['kd_pos'] ?>" placeholder="Kode pos...">
                                 <?= form_error('kd_pos', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Padi</label>
                                 <div class="d-flex">
-                                    <input type="number" name="prd_padi" class="form-control" id="" value="<?= $ds['prod_padi'] ?>" placeholder="Produksi padi...">
+                                    <input type="number" name="prd_padi1" class="form-control" id="" value="<?= $ds['prod_padi'] ?>" placeholder="Produksi padi...">
                                     <p class="m-2 text-bold">kwintal</p>
                                 </div>
                                 <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
@@ -242,7 +242,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Jagung</label>
                                 <div class="d-flex">
-                                    <input type="number" name="prd_jagung" class="form-control" id="" value="<?= $ds['prod_jagung'] ?>" placeholder="Produksi jagung...">
+                                    <input type="number" name="prd_jagung1" class="form-control" id="" value="<?= $ds['prod_jagung'] ?>" placeholder="Produksi jagung...">
                                     <p class="m-2 text-bold">kwintal</p>
                                 </div>
                                 <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>
@@ -250,7 +250,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Populasi</label>
                                 <div class="d-flex">
-                                    <input type="number" name="populasi" class="form-control" id="" value="<?= $ds['populasi'] ?>" placeholder="Jumlah populasi...">
+                                    <input type="number" name="populasi1" class="form-control" id="" value="<?= $ds['populasi'] ?>" placeholder="Jumlah populasi...">
                                     <p class="m-2 text-bold">orang</p>
                                 </div>
                                 <?= form_error('populasi', '<small class="text-danger">', '</small>') ?>

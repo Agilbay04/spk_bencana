@@ -203,17 +203,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
-                                <input type="number" name="jml_ketersediaan" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= $kls['jml_ketersediaan']; ?>" required>
+                                <input type="number" name="jml_ketersediaan1" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= $kls['jml_ketersediaan']; ?>" required>
                                 <?= form_error('jml_ketersediaan', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Akses</label>
-                                <input type="number" name="jml_akses" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= $kls['jml_akses']; ?>" required>
+                                <input type="number" name="jml_akses1" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= $kls['jml_akses']; ?>" required>
                                 <?= form_error('jml_akses', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
-                                <input type="number" name="jml_pemanfaatan" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= $kls['jml_pemanfaatan']; ?>" required>
+                                <input type="number" name="jml_pemanfaatan1" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= $kls['jml_akses']; ?>" required>
                                 <?= form_error('jml_pemanfaatan', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>

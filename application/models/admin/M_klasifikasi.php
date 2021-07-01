@@ -30,6 +30,14 @@ class M_klasifikasi extends CI_Model
         $this->db->insert('klasifikasi', $dt_kls);
     }
 
+    /** Edit data di tabel klasifikasi */
+    public function updatekls($dt_kls, $id)
+    {
+        $this->db->set($dt_kls);
+        $this->db->where('id_klasifikasi', $id);
+        $this->db->update('klasifikasi');
+    }
+
     /** Hapus data tabel klasifikasi */
     public function deletekls($id_kls)
     {

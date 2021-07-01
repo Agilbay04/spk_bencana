@@ -86,6 +86,8 @@
             toastr.info('Data berhasil diubah!')
         } else if (flashData == 'delete') {
             toastr.error('Data berhasil dihapus!')
+        } else if (flashData == 'warning') {
+            toastr.warning('Kesalahan dalam mengisi data!')
         }
     });
 </script>

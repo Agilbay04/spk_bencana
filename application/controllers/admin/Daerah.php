@@ -71,6 +71,9 @@ class Daerah extends CI_Controller
             /** Mengirim id ke view */
             $data['id'] = $id_kec;
 
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
@@ -103,18 +106,37 @@ class Daerah extends CI_Controller
             /** Menampilkan data kecamatan */
             $data['kec'] = $this->M_kecamatan->getkec()->result_array();
 
+            /** Perikasa apakah ada data di tabel */
+            $countData = $this->M_kecamatan->idkec()->num_rows();
+
+            /** Ambil id terakhir */
+            $getID = $this->M_kecamatan->idkec()->row_array();
+
+            /** Membuat uniq id */
+            if ($countData > 0) {
+                $id_kec = autonumber($getID['id_kecamatan'], 3, 12);
+            } else {
+                $id_kec = "KEC000000000001";
+            }
+
+            /** Mengirim id ke view */
+            $data['id'] = $id_kec;
+
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
             $this->load->view('admin/v_kecamatan', $data);
             $this->load->view('admin/template_adm/footer');
         } else {
-            $id = $this->input->post('id_kec');
+            $id = $this->input->post('id_kec1');
 
             /** Menambahkan data ke tabel kecamatan */
             $dt_kec = [
                 'id_kecamatan' => $id,
-                'nm_kecamatan' => htmlspecialchars($this->input->post('nm_kec'))
+                'nm_kecamatan' => htmlspecialchars($this->input->post('nm_kec1'))
             ];
 
             $this->M_kecamatan->updatekec($dt_kec, $id);
@@ -219,6 +241,9 @@ class Daerah extends CI_Controller
             /** Mengirim id ke view */
             $data['id'] = $id_ds;
 
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
@@ -279,6 +304,25 @@ class Daerah extends CI_Controller
             /** Menampilkan data kecamatan */
             $data['kec'] = $this->M_kecamatan->getkec()->result_array();
 
+            /** Perikasa apakah ada data di tabel */
+            $countData = $this->M_desa->idds()->num_rows();
+
+            /** Ambil id terakhir */
+            $getID = $this->M_desa->idds()->row_array();
+
+            /** Membuat uniq id */
+            if ($countData > 0) {
+                $id_ds = autonumber($getID['id_desa'], 2, 13);
+            } else {
+                $id_ds = "DS0000000000001";
+            }
+
+            /** Mengirim id ke view */
+            $data['id'] = $id_ds;
+
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
@@ -286,16 +330,16 @@ class Daerah extends CI_Controller
             $this->load->view('admin/template_adm/footer');
         } else {
             /** Menambahkan data ke tabel desa */
-            $id = $this->input->post('id_ds');
+            $id = $this->input->post('id_ds1');
 
             $dt_ds = [
                 'id_desa' => $id,
-                'nm_desa' => htmlspecialchars($this->input->post('nm_ds')),
-                'id_kecamatan' => htmlspecialchars($this->input->post('kec')),
-                'kd_pos' => htmlspecialchars($this->input->post('kd_pos')),
-                'prod_padi' => htmlspecialchars($this->input->post('prd_padi')),
-                'prod_jagung' => htmlspecialchars($this->input->post('prd_jagung')),
-                'populasi' => htmlspecialchars($this->input->post('populasi'))
+                'nm_desa' => htmlspecialchars($this->input->post('nm_ds1')),
+                'id_kecamatan' => htmlspecialchars($this->input->post('kec1')),
+                'kd_pos' => htmlspecialchars($this->input->post('kd_pos1')),
+                'prod_padi' => htmlspecialchars($this->input->post('prd_padi1')),
+                'prod_jagung' => htmlspecialchars($this->input->post('prd_jagung1')),
+                'populasi' => htmlspecialchars($this->input->post('populasi1'))
             ];
 
             $this->M_desa->updateds($dt_ds, $id);

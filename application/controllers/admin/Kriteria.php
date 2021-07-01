@@ -70,6 +70,9 @@ class Kriteria extends CI_Controller
             /** Mengirim id ke view */
             $data['id'] = $id_kt;
 
+            /** Alert validasi salah */
+            $this->session->set_flashdata('messages', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
