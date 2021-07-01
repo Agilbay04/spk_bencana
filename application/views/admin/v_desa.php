@@ -58,8 +58,8 @@
                                         <td><?= $ds['nm_desa']; ?></td>
                                         <td><?= $ds['nm_kecamatan']; ?></td>
                                         <td><?= $ds['kd_pos']; ?></td>
-                                        <td><?= $ds['prod_padi']; ?> kwintal</td>
-                                        <td><?= $ds['prod_jagung']; ?> kwintal</td>
+                                        <td><?= $ds['prod_padi']; ?> ton</td>
+                                        <td><?= $ds['prod_jagung']; ?> ton</td>
                                         <td><?= $ds['populasi']; ?> orang</td>
                                         <td><?= date('d M Y, H:i', strtotime($ds['time_in_ds'])); ?></td>
                                         <td>
@@ -143,7 +143,7 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Produksi Padi</label>
                             <div class="d-flex">
-                                <input type="number" name="prd_padi" class="form-control" id="" value="<?= set_value('prd_padi') ?>" placeholder="Produksi padi...">
+                                <input type="text" name="prd_padi" class="form-control" id="" value="<?= set_value('prd_padi') ?>" placeholder="Produksi padi...">
                                 <p class="m-2 text-bold">kwintal</p>
                             </div>
                             <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
@@ -151,7 +151,7 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Produksi Jagung</label>
                             <div class="d-flex">
-                                <input type="number" name="prd_jagung" class="form-control" id="" value="<?= set_value('prd_jagung') ?>" placeholder="Produksi jagung...">
+                                <input type="text" name="prd_jagung" class="form-control" id="" value="<?= set_value('prd_jagung') ?>" placeholder="Produksi jagung...">
                                 <p class="m-2 text-bold">kwintal</p>
                             </div>
                             <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>

@@ -203,11 +203,11 @@ class Daerah extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_padi', 'Prd_padi', 'trim|required', [
+        $this->form_validation->set_rules('prd_padi', 'Prd_padi', 'trim|required|decimal', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_jagung', 'Prd_jagung', 'trim|required', [
+        $this->form_validation->set_rules('prd_jagung', 'Prd_jagung', 'trim|required|decimal', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
