@@ -71,7 +71,7 @@ class Kriteria extends CI_Controller
             $data['id'] = $id_kt;
 
             /** Alert validasi salah */
-            $this->session->set_flashdata('messages', 'warning');
+            $this->session->set_flashdata('message', 'warning');
 
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
@@ -94,7 +94,7 @@ class Kriteria extends CI_Controller
     public function edit_kriteria()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('nm_kt', 'Nm_kt', 'trim|required', [
+        $this->form_validation->set_rules('nm_kt1', 'Nm_kt', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -105,18 +105,37 @@ class Kriteria extends CI_Controller
             /** Menampilkan data kriteria */
             $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
 
+            /** Perikasa apakah ada data di tabel */
+            $countData = $this->M_kriteria->idkt()->num_rows();
+
+            /** Ambil id terakhir */
+            $getID = $this->M_kriteria->idkt()->row_array();
+
+            /** Membuat uniq id */
+            if ($countData > 0) {
+                $id_kt = autonumber($getID['id_kriteria'], 2, 13);
+            } else {
+                $id_kt = "KT0000000000001";
+            }
+
+            /** Mengirim id ke view */
+            $data['id'] = $id_kt;
+
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
             $this->load->view('admin/v_kriteria', $data);
             $this->load->view('admin/template_adm/footer');
         } else {
-            $id = $this->input->post('id_kt');
+            $id = $this->input->post('id_kt1');
 
             /** Edit data tabel kriteria */
             $dt_kt = [
                 'id_kriteria' => $id,
-                'nm_kriteria' => htmlspecialchars($this->input->post('nm_kt'))
+                'nm_kriteria' => htmlspecialchars($this->input->post('nm_kt1'))
             ];
 
             $this->M_kriteria->updatekt($dt_kt, $id);
@@ -161,6 +180,9 @@ class Kriteria extends CI_Controller
 
         /** Mengirim id ke view */
         $data['id_h'] = $id_himpunan;
+
+        /** Alert validasi salah */
+        $this->session->set_flashdata('message', 'warning');
 
         $this->load->view('admin/template_adm/header', $data);
         $this->load->view('admin/template_adm/navbar');
@@ -210,6 +232,9 @@ class Kriteria extends CI_Controller
             /** Mengirim id ke view */
             $data['id_h'] = $id_himpunan;
 
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
@@ -233,15 +258,15 @@ class Kriteria extends CI_Controller
     public function edit_himpunan()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('kriteria', 'Kriteria', 'trim|required', [
+        $this->form_validation->set_rules('kriteria1', 'Kriteria', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('range', 'Range', 'trim|required', [
+        $this->form_validation->set_rules('range1', 'Range', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required', [
+        $this->form_validation->set_rules('nilai1', 'Nilai', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -255,6 +280,25 @@ class Kriteria extends CI_Controller
             /** Menampilkan data himpunan kriteria */
             $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
 
+            /** Perikasa apakah ada data di tabel */
+            $countData = $this->M_kriteria->idhimpunan()->num_rows();
+
+            /** Ambil id terakhir */
+            $getID = $this->M_kriteria->idhimpunan()->row_array();
+
+            /** Membuat uniq id */
+            if ($countData > 0) {
+                $id_himpunan = autonumber($getID['no'], 3, 12);
+            } else {
+                $id_himpunan = "HIM000000000001";
+            }
+
+            /** Mengirim id ke view */
+            $data['id_h'] = $id_himpunan;
+
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
+
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
             $this->load->view('admin/template_adm/sidebar');
@@ -262,12 +306,12 @@ class Kriteria extends CI_Controller
             $this->load->view('admin/template_adm/footer');
         } else {
             /** Edit data tabel himpunan kriteria */
-            $id_h = $this->input->post('id_h');
+            $id_h = $this->input->post('id_h1');
 
             $dt_himpunan = [
-                'id_kriteria' => htmlspecialchars($this->input->post('kriteria')),
-                'range' => htmlspecialchars($this->input->post('range')),
-                'nilai' => htmlspecialchars($this->input->post('nilai'))
+                'id_kriteria' => htmlspecialchars($this->input->post('kriteria1')),
+                'range' => htmlspecialchars($this->input->post('range1')),
+                'nilai' => htmlspecialchars($this->input->post('nilai1'))
             ];
 
             $this->M_kriteria->updatehimpunan($dt_himpunan, $id_h);

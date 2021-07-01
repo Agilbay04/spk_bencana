@@ -212,7 +212,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Desa</label>
                                 <input type="text" name="nm_ds1" class="form-control" id="" value="<?= $ds['nm_desa'] ?>" placeholder="Nama Desa...">
-                                <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('nm_ds1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Kecamatan</label>
@@ -224,12 +224,12 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <?= form_error('kec', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('kec11', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Kode Pos</label>
                                 <input type="number" name="kd_pos1" class="form-control" id="" value="<?= $ds['kd_pos'] ?>" placeholder="Kode pos...">
-                                <?= form_error('kd_pos', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('kd_pos1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Padi</label>
@@ -237,7 +237,7 @@
                                     <input type="number" name="prd_padi1" class="form-control" id="" value="<?= $ds['prod_padi'] ?>" placeholder="Produksi padi...">
                                     <p class="m-2 text-bold">kwintal</p>
                                 </div>
-                                <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('prd_padi1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Produksi Jagung</label>
@@ -245,7 +245,7 @@
                                     <input type="number" name="prd_jagung1" class="form-control" id="" value="<?= $ds['prod_jagung'] ?>" placeholder="Produksi jagung...">
                                     <p class="m-2 text-bold">kwintal</p>
                                 </div>
-                                <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('prd_jagung1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Populasi</label>
@@ -253,7 +253,7 @@
                                     <input type="number" name="populasi1" class="form-control" id="" value="<?= $ds['populasi'] ?>" placeholder="Jumlah populasi...">
                                     <p class="m-2 text-bold">orang</p>
                                 </div>
-                                <?= form_error('populasi', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('populasi1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
                         <!-- /.card-body -->

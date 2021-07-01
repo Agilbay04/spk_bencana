@@ -180,41 +180,42 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID Klasifikasi</label>
-                                <input type="text" name="id_kls" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['id_klasifikasi']; ?>" readonly>
+                                <input type="text" name="id_kls1" class="form-control" id="" placeholder="ID klasifikasi..." value="<?= $kls['id_klasifikasi']; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Desa</label>
-                                <select name="nm_ds" class="form-control" id="nm_ds1" disabled>
+                                <select name="nm_ds1" class="form-control" id="nm_ds" disabled>
                                     <option value="" selected><span class="text-muted">--Pilih Desa--</span></option>
                                     <?php foreach ($desa as $ds) : ?>
                                         <option value="<?= $ds['id_desa']; ?>" <?= $ds['id_desa'] == $kls['id_desa'] ? "selected" : null ?>><?= $ds['nm_desa']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                                <?= form_error('nm_ds1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kecamatan</label>
-                                <select name="nm_kec" class="form-control" id="nm_kec1" disabled>
+                                <select name="nm_kec1" class="form-control" id="nm_kec" disabled>
                                     <option value="" selected><span class="text-muted">--Pilih Kecamatan--</span></option>
                                     <?php foreach ($kec as $k) : ?>
                                         <option value="<?= $k['id_kecamatan']; ?>" <?= $k['id_kecamatan'] == $kls['id_kecamatan'] ? "selected" : null ?>><?= $k['nm_kecamatan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <?= form_error('nm_kec', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('nm_kec1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
                                 <input type="number" name="jml_ketersediaan1" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= $kls['jml_ketersediaan']; ?>" required>
-                                <?= form_error('jml_ketersediaan', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('jml_ketersediaan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Akses</label>
                                 <input type="number" name="jml_akses1" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= $kls['jml_akses']; ?>" required>
-                                <?= form_error('jml_akses', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('jml_akses1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
                                 <input type="number" name="jml_pemanfaatan1" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= $kls['jml_akses']; ?>" required>
-                                <?= form_error('jml_pemanfaatan', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('jml_pemanfaatan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
                         <!-- /.card-body -->

@@ -134,15 +134,15 @@ class Klasifikasi extends CI_Controller
     public function edit_klasifikasi()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('jml_ketersediaan', 'Jml_k', 'trim|required', [
+        $this->form_validation->set_rules('jml_ketersediaan1', 'Jml_k', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_akses', 'Jml_a', 'trim|required', [
+        $this->form_validation->set_rules('jml_akses1', 'Jml_a', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_pemanfaatan', 'Jml_p', 'trim|required', [
+        $this->form_validation->set_rules('jml_pemanfaatan1', 'Jml_p', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -185,7 +185,7 @@ class Klasifikasi extends CI_Controller
             $this->load->view('admin/template_adm/footer');
         } else {
             /** Menambahkan data ke tabel klasifikasi */
-            $id = $this->input->post('id_kls');
+            $id = $this->input->post('id_kls1');
 
             $dt_kls = [
                 'id_klasifikasi' => $id,

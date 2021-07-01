@@ -141,12 +141,12 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID Kriteria</label>
-                                <input type="text" name="id_kt" class="form-control" id="" placeholder="ID kriteria..." value="<?= $kt['id_kriteria']; ?>" readonly>
+                                <input type="text" name="id_kt1" class="form-control" id="" placeholder="ID kriteria..." value="<?= $kt['id_kriteria']; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kriteria</label>
-                                <input type="text" name="nm_kt" class="form-control" id="" placeholder="Nama kriteria..." value="<?= $kt['nm_kriteria'] ?>" required>
-                                <?= form_error('nm_kec', '<small class="text-danger">', '</small>'); ?>
+                                <input type="text" name="nm_kt1 class="form-control" id="" placeholder="Nama kriteria..." value="<?= $kt['nm_kriteria'] ?>" required>
+                                <?= form_error('nm_kec1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>
                         <!-- /.card-body -->

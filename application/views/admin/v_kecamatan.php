@@ -146,7 +146,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kecamatan</label>
                                 <input type="text" name="nm_kec1" class="form-control" id="" placeholder="Nama kecamatan..." value="<?= $k['nm_kecamatan'] ?>" required>
-                                <?= form_error('nm_kec', '<small class="text-danger">', '</small>'); ?>
+                                <?= form_error('nm_kec1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>
                         <!-- /.card-body -->

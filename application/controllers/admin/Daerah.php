@@ -95,7 +95,7 @@ class Daerah extends CI_Controller
     public function edit_kecamatan()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('nm_kec', 'Nm_kec', 'trim|required', [
+        $this->form_validation->set_rules('nm_kec1', 'Nm_kec', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -270,27 +270,27 @@ class Daerah extends CI_Controller
     public function edit_desa()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('nm_ds', 'Nm_ds', 'trim|required', [
+        $this->form_validation->set_rules('nm_ds1', 'Nm_ds', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('kec', 'Kec', 'required', [
+        $this->form_validation->set_rules('kec1', 'Kec', 'required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('kd_pos', 'Kd_pos', 'trim|required', [
+        $this->form_validation->set_rules('kd_pos1', 'Kd_pos', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_padi', 'Prd_padi', 'trim|required', [
+        $this->form_validation->set_rules('prd_padi1', 'Prd_padi', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_jagung', 'Prd_jagung', 'trim|required', [
+        $this->form_validation->set_rules('prd_jagung1', 'Prd_jagung', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('populasi', 'Populasi', 'trim|required', [
+        $this->form_validation->set_rules('populasi1', 'Populasi', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 

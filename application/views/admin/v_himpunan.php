@@ -161,27 +161,27 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID</label>
-                                <input type="text" name="id_h" class="form-control" id="" placeholder="ID himpunan kriteria..." value="<?= $himp['no']; ?>" readonly>
+                                <input type="text" name="id_h1" class="form-control" id="" placeholder="ID himpunan kriteria..." value="<?= $himp['no']; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kriteria</label>
-                                <select name="kriteria" class="form-control" id="" required>
+                                <select name="kriteria1" class="form-control" id="" required>
                                     <option value="" selected><span class="text-muted">--Pilih Kriteria--</span></option>
                                     <?php foreach ($kriteria as $kt) : ?>
                                         <option value="<?= $kt['id_kriteria']; ?>" <?= $kt['id_kriteria'] == $himp['id_kriteria'] ? "selected" : null ?>><?= $kt['nm_kriteria']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <?= form_error('kriteria', '<small class="text-danger">', '</small>') ?>
+                                <?= form_error('kriteria1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Range</label>
-                                <input type="text" name="range" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Range..." required>
-                                <?= form_error('range', '<small class="text-danger">', '</small>') ?>
+                                <input type="text" name="range1" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Range..." required>
+                                <?= form_error('range1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nilai</label>
-                                <input type="text" name="nilai" class="form-control" id="" value="<?= $himp['nilai']; ?>" placeholder="Nilai..." required>
-                                <?= form_error('nilai', '<small class="text-danger">', '</small>') ?>
+                                <input type="text" name="nilai1" class="form-control" id="" value="<?= $himp['nilai']; ?>" placeholder="Nilai..." required>
+                                <?= form_error('nilai1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
                         <!-- /.card-body -->
