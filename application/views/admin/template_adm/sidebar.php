@@ -23,6 +23,52 @@
                         </p>
                     </a>
                 </li>
+
+                <?php if ($this->session->userdata('id_akses') == 2 || $this->session->userdata('id_akses') == 3) : ?>
+
+                <?php else : ?>
+                    <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "user") {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "user") {
+                                                        echo "active";
+                                                    } ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Manajemen User
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('admin/user') ?>" class="nav-link <?php if ($this->uri->segment(2) == "user" && $this->uri->segment(3) == "") {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Hak Akses</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('admin/user/petugas_dinas') ?>" class="nav-link <?php if ($this->uri->segment(3) == "petugas_dinas") {
+                                                                                                            echo "active";
+                                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Petugas Dinas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('admin/user/umum') ?>" class="nav-link <?php if ($this->uri->segment(3) == "umum") {
+                                                                                                            echo "active";
+                                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Umum</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
+
                 <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "daerah") {
                                                         echo "menu-open";
                                                     } ?>">
@@ -54,47 +100,56 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "kriteria") {
-                                                        echo "menu-open";
+                
+
+                <?php if ($this->session->userdata('id_akses') == 3) : ?>
+
+                <?php else : ?>
+                    <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "kriteria") {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "kriteria") {
+                                                        echo "active";
                                                     } ?>">
-                    <a href="#" class="nav-link <?php if ($this->uri->segment(2) == "kriteria") {
-                                                    echo "active";
-                                                } ?>">
-                        <i class="nav-icon fas fa-boxes"></i>
-                        <p>
-                            Data Kriteria
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/kriteria') ?>" class="nav-link <?php if ($this->uri->segment(3) != "himpunan") {
-                                                                                                    echo "active";
-                                                                                                } ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kriteria</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/kriteria/himpunan') ?>" class="nav-link <?php if ($this->uri->segment(3) == "himpunan") {
+                            <i class="nav-icon fas fa-boxes"></i>
+                            <p>
+                                Data Kriteria
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('admin/kriteria') ?>" class="nav-link <?php if ($this->uri->segment(2) == "kriteria" && $this->uri->segment(3) != "himpunan") {
                                                                                                 echo "active";
                                                                                             } ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Range Kriteria</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('admin/klasifikasi'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "klasifikasi") {
-                                                                                    echo "active";
-                                                                                } ?>">
-                        <i class="nav-icon fas fa-sort"></i>
-                        <p>
-                            Klasifikasi
-                        </p>
-                    </a>
-                </li>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kriteria</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('admin/kriteria/himpunan') ?>" class="nav-link <?php if ($this->uri->segment(3) == "himpunan") {
+                                                                                                            echo "active";
+                                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Range Kriteria</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="<?= base_url('admin/klasifikasi'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "klasifikasi") {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                            <i class="nav-icon fas fa-sort"></i>
+                            <p>
+                                Klasifikasi
+                            </p>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+
                 <li class="nav-item">
                     <a href="<?= base_url('admin/rating'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "rating") {
                                                                                     echo "active";
@@ -106,7 +161,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active bg-gradient-danger" data-toggle="modal" data-target="#logout-modal">
+                    <a href="<?= base_url('admin/auth/logout'); ?>" class="nav-link active bg-gradient-danger" data-toggle="modal" data-target="#logout-modal">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             Keluar

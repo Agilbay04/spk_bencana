@@ -27,10 +27,14 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button class="btn bg-gradient-teal font-weight-bold text-uppercase" data-toggle="modal" data-target="#add-modal">
-                            <i class="fas fa-plus"></i>
-                            Tambah Data
-                        </button>
+                        <?php if ($this->session->userdata('id_akses') == 3) : ?>
+
+                        <?php else : ?>
+                            <button class="btn bg-gradient-teal font-weight-bold text-uppercase" data-toggle="modal" data-target="#add-modal">
+                                <i class="fas fa-plus"></i>
+                                Tambah Data
+                            </button>
+                        <?php endif; ?>
                     </div>
                     <!-- /.card-header -->
                     <?php $no = 1; ?>
@@ -47,7 +51,11 @@
                                     <th>Produksi Jagung</th>
                                     <th>Populasi</th>
                                     <th>Terakhir Diupdate</th>
-                                    <th>Aksi</th>
+                                    <?php if ($this->session->userdata('id_akses') == 3) : ?>
+
+                                    <?php else : ?>
+                                        <th>Aksi</th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,20 +66,24 @@
                                         <td><?= $ds['nm_desa']; ?></td>
                                         <td><?= $ds['nm_kecamatan']; ?></td>
                                         <td><?= $ds['kd_pos']; ?></td>
-                                        <td><?= $ds['prod_padi']; ?> ton</td>
-                                        <td><?= $ds['prod_jagung']; ?> ton</td>
-                                        <td><?= $ds['populasi']; ?> orang</td>
+                                        <td><?= $ds['prod_padi']; ?> <b>(ton)</b></td>
+                                        <td><?= $ds['prod_jagung']; ?> <b>(ton)</b></td>
+                                        <td><?= $ds['populasi']; ?> <b>(orang)</b></td>
                                         <td><?= date('d M Y, H:i', strtotime($ds['time_in_ds'])); ?></td>
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-sm bg-gradient-teal m-1" data-toggle="modal" data-target="#edit-modal<?= $ds['id_desa']; ?>" title="edit data">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-sm bg-gradient-danger m-1" data-toggle="modal" data-target="#del-modal<?= $ds['id_desa']; ?>" title="hapus data">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <?php if ($this->session->userdata('id_akses') == 3) : ?>
+
+                                        <?php else : ?>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <button class="btn btn-sm bg-gradient-teal m-1" data-toggle="modal" data-target="#edit-modal<?= $ds['id_desa']; ?>" title="edit data">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm bg-gradient-danger m-1" data-toggle="modal" data-target="#del-modal<?= $ds['id_desa']; ?>" title="hapus data">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        <?php endif; ?>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -86,7 +98,11 @@
                                     <th>Produksi Jagung</th>
                                     <th>Populasi</th>
                                     <th>Terakhir Diupdate</th>
-                                    <th>Aksi</th>
+                                    <?php if ($this->session->userdata('id_akses') == 3) : ?>
+
+                                    <?php else : ?>
+                                        <th>Aksi</th>
+                                    <?php endif; ?>
                                 </tr>
                             </tfoot>
                         </table>
@@ -143,16 +159,16 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Produksi Padi</label>
                             <div class="d-flex">
-                                <input type="text" name="prd_padi" class="form-control" id="" value="<?= set_value('prd_padi') ?>" placeholder="Produksi padi...">
-                                <p class="m-2 text-bold">kwintal</p>
+                                <input type="number" name="prd_padi" class="form-control" id="" value="<?= set_value('prd_padi') ?>" placeholder="Produksi padi...">
+                                <p class="m-2 text-bold">ton</p>
                             </div>
                             <?= form_error('prd_padi', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Produksi Jagung</label>
                             <div class="d-flex">
-                                <input type="text" name="prd_jagung" class="form-control" id="" value="<?= set_value('prd_jagung') ?>" placeholder="Produksi jagung...">
-                                <p class="m-2 text-bold">kwintal</p>
+                                <input type="number" name="prd_jagung" class="form-control" id="" value="<?= set_value('prd_jagung') ?>" placeholder="Produksi jagung...">
+                                <p class="m-2 text-bold">ton</p>
                             </div>
                             <?= form_error('prd_jagung', '<small class="text-danger">', '</small>') ?>
                         </div>
@@ -164,30 +180,19 @@
                             </div>
                             <?= form_error('populasi', '<small class="text-danger">', '</small>') ?>
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="">Upload</span>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
-                    <!-- /.card-body -->
                 </div>
+                <!-- /.card-body -->
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default text-uppercase font-weight-bold" data-dismiss="modal"><i class="fas fa-ban"></i> Tutup</button>
                     <button type="submit" class="btn bg-gradient-teal text-uppercase font-weight-bold"><i class="fas fa-save"></i> Simpan</button>
                 </div>
             </form>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
 
@@ -235,7 +240,7 @@
                                 <label for="exampleInputPassword1">Produksi Padi</label>
                                 <div class="d-flex">
                                     <input type="number" name="prd_padi1" class="form-control" id="" value="<?= $ds['prod_padi'] ?>" placeholder="Produksi padi...">
-                                    <p class="m-2 text-bold">kwintal</p>
+                                    <p class="m-2 text-bold">ton</p>
                                 </div>
                                 <?= form_error('prd_padi1', '<small class="text-danger">', '</small>') ?>
                             </div>
@@ -243,7 +248,7 @@
                                 <label for="exampleInputPassword1">Produksi Jagung</label>
                                 <div class="d-flex">
                                     <input type="number" name="prd_jagung1" class="form-control" id="" value="<?= $ds['prod_jagung'] ?>" placeholder="Produksi jagung...">
-                                    <p class="m-2 text-bold">kwintal</p>
+                                    <p class="m-2 text-bold">ton</p>
                                 </div>
                                 <?= form_error('prd_jagung1', '<small class="text-danger">', '</small>') ?>
                             </div>

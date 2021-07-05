@@ -43,6 +43,7 @@
                                     <th>Nama Kriteria</th>
                                     <th>Range</th>
                                     <th>Nilai</th>
+                                    <th>Keterangan</th>
                                     <th>Terakhir diupdate</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -55,6 +56,7 @@
                                         <td><?= $himp['nm_kriteria']; ?></td>
                                         <td><?= $himp['range']; ?></td>
                                         <td><?= $himp['nilai']; ?></td>
+                                        <td><?= $himp['keterangan']; ?></td>
                                         <td><?= date('d M Y, H:i', strtotime($himp['time_in_himp'])); ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
@@ -76,6 +78,7 @@
                                     <th>Nama Kriteria</th>
                                     <th>Range</th>
                                     <th>Nilai</th>
+                                    <th>Keterangan</th>
                                     <th>Terakhir diupdate</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -123,13 +126,24 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Range</label>
-                            <input type="text" name="range" class="form-control" id="" placeholder="Range..." required>
+                            <input type="text" name="range" class="form-control" id="" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." required>
                             <?= form_error('range', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nilai</label>
-                            <input type="text" name="nilai" class="form-control" id="" placeholder="Nilai..." required>
+                            <input type="text" name="nilai" class="form-control" id="" placeholder="angka harus desimal dan tidak lebih besar dari 1 contoh: 1.0, 0.4, dst..." required>
                             <?= form_error('nilai', '<small class="text-danger">', '</small>') ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Keterangan</label>
+                            <select name="keterangan" class="form-control" id="" required>
+                                <option value="" selected><span class="text-muted">--Keterangan nilai--</span></option>
+                                <?php $dt_ket = ['Sangat Tinggi', 'Tinggi', 'Cukup', 'Rendah', 'Sangat Rendah']; ?>
+                                <?php foreach ($dt_ket as $ket) : ?>
+                                    <option value="<?= $ket; ?>"><?= $ket; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?= form_error('keterangan', '<small class="text-danger">', '</small>') ?>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -175,13 +189,24 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Range</label>
-                                <input type="text" name="range1" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Range..." required>
+                                <input type="text" name="range1" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." required>
                                 <?= form_error('range1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nilai</label>
-                                <input type="text" name="nilai1" class="form-control" id="" value="<?= $himp['nilai']; ?>" placeholder="Nilai..." required>
+                                <input type="text" name="nilai1" class="form-control" id="" value="<?= $himp['nilai']; ?>" placeholder="angka harus desimal dan tidak lebih besar dari 1 contoh: 1.0, 0.4, dst..." required>
                                 <?= form_error('nilai1', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Keterangan</label>
+                                <select name="keterangan1" class="form-control" id="" required>
+                                    <option value="" selected><span class="text-muted">--Keterangan nilai--</span></option>
+                                    <?php $dt_ket = ['Sangat Tinggi', 'Tinggi', 'Cukup', 'Rendah', 'Sangat Rendah']; ?>
+                                    <?php foreach ($dt_ket as $ket) : ?>
+                                        <option value="<?= $ket; ?>" <?= $ket == $himp['keterangan'] ? "selected" : null ?>><?= $ket; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <?= form_error('keterangan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
                         <!-- /.card-body -->
