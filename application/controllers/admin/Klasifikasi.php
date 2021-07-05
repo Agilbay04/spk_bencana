@@ -7,6 +7,7 @@ class Klasifikasi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('admin/M_kriteria');
         $this->load->model('admin/M_klasifikasi');
         $this->load->model('admin/M_kecamatan');
         $this->load->model('admin/M_desa');
@@ -15,16 +16,19 @@ class Klasifikasi extends CI_Controller
     public function index()
     {
         $data['title'] = 'SPK-BP | Klasifikasi';
-        $data['judul'] = 'Data Klasifikasi';
+        $data['judul'] = 'Data Klasifikasi';    
 
         /** Mengambil data dari tabel klasifikasi */
         $data['klasifikasi'] = $this->M_klasifikasi->getkls()->result_array();
 
         /** Mengambil data kecamatan */
         $data['kec'] = $this->M_kecamatan->getkec()->result_array();
-
+        
         /** Mengambil data dari tabel desa */
         $data['desa'] = $this->M_desa->getds()->result_array();
+
+        /** Mengambil data himpunan kriteria */
+        $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
 
         /** Perikasa apakah ada data di tabel */
         $countData = $this->M_klasifikasi->idkls()->num_rows();
@@ -68,15 +72,15 @@ class Klasifikasi extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_ketersediaan', 'Jml_k', 'trim|required', [
+        $this->form_validation->set_rules('r_ketersediaan', 'R_k', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_akses', 'Jml_a', 'trim|required', [
+        $this->form_validation->set_rules('r_akses', 'R_a', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_pemanfaatan', 'Jml_p', 'trim|required', [
+        $this->form_validation->set_rules('r_pemanfaatan', 'R_p', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -92,6 +96,9 @@ class Klasifikasi extends CI_Controller
 
             /** Mengambil data dari tabel desa */
             $data['desa'] = $this->M_desa->getds()->result_array();
+
+            /** Mengambil data himpunan kriteria */
+            $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
 
             /** Perikasa apakah ada data di tabel */
             $countData = $this->M_klasifikasi->idkls()->num_rows();
@@ -120,9 +127,9 @@ class Klasifikasi extends CI_Controller
                 'id_klasifikasi' => htmlspecialchars($this->input->post('id_kls')),
                 'id_desa' => htmlspecialchars($this->input->post('nm_ds')),
                 'id_kecamatan' => htmlspecialchars($this->input->post('nm_kec')),
-                'jml_ketersediaan' => htmlspecialchars($this->input->post('jml_ketersediaan')),
-                'jml_akses' => htmlspecialchars($this->input->post('jml_akses')),
-                'jml_pemanfaatan' => htmlspecialchars($this->input->post('jml_pemanfaatan'))
+                'r_ketersediaan' => htmlspecialchars($this->input->post('r_ketersediaan')),
+                'r_akses' => htmlspecialchars($this->input->post('r_akses')),
+                'r_pemanfaatan' => htmlspecialchars($this->input->post('r_pemanfaatan'))
             ];
 
             $this->M_klasifikasi->insertkls($dt_kls);
@@ -134,15 +141,15 @@ class Klasifikasi extends CI_Controller
     public function edit_klasifikasi()
     {
         /** Validasi form */
-        $this->form_validation->set_rules('jml_ketersediaan1', 'Jml_k', 'trim|required', [
+        $this->form_validation->set_rules('r_ketersediaan1', 'R_k', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_akses1', 'Jml_a', 'trim|required', [
+        $this->form_validation->set_rules('r_akses1', 'R_a', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('jml_pemanfaatan1', 'Jml_p', 'trim|required', [
+        $this->form_validation->set_rules('r_pemanfaatan1', 'R_p', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -158,6 +165,9 @@ class Klasifikasi extends CI_Controller
 
             /** Mengambil data dari tabel desa */
             $data['desa'] = $this->M_desa->getds()->result_array();
+
+            /** Mengambil data himpunan kriteria */
+            $data['himpunan'] = $this->M_kriteria->gethimpunan()->result_array();
 
             /** Perikasa apakah ada data di tabel */
             $countData = $this->M_klasifikasi->idkls()->num_rows();
@@ -189,9 +199,9 @@ class Klasifikasi extends CI_Controller
 
             $dt_kls = [
                 'id_klasifikasi' => $id,
-                'jml_ketersediaan' => htmlspecialchars($this->input->post('jml_ketersediaan1')),
-                'jml_akses' => htmlspecialchars($this->input->post('jml_akses1')),
-                'jml_pemanfaatan' => htmlspecialchars($this->input->post('jml_pemanfaatan1'))
+                'r_ketersediaan' => htmlspecialchars($this->input->post('r_ketersediaan1')),
+                'r_akses' => htmlspecialchars($this->input->post('r_akses1')),
+                'r_pemanfaatan' => htmlspecialchars($this->input->post('r_pemanfaatan1'))
             ];
 
             $this->M_klasifikasi->updatekls($dt_kls, $id);

@@ -181,9 +181,6 @@ class Kriteria extends CI_Controller
         /** Mengirim id ke view */
         $data['id_h'] = $id_himpunan;
 
-        /** Alert validasi salah */
-        $this->session->set_flashdata('message', 'warning');
-
         $this->load->view('admin/template_adm/header', $data);
         $this->load->view('admin/template_adm/navbar');
         $this->load->view('admin/template_adm/sidebar');
@@ -202,7 +199,12 @@ class Kriteria extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required', [
+        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required|decimal', [
+            'required' => 'Kolom ini wajib diisi',
+            'decimal' => 'Kolom ini harus berisi angka desimal'
+        ]);
+
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -246,7 +248,8 @@ class Kriteria extends CI_Controller
                 'no' => $this->input->post('id_h'),
                 'id_kriteria' => htmlspecialchars($this->input->post('kriteria')),
                 'range' => htmlspecialchars($this->input->post('range')),
-                'nilai' => htmlspecialchars($this->input->post('nilai'))
+                'nilai' => htmlspecialchars($this->input->post('nilai')),
+                'keterangan' => htmlspecialchars($this->input->post('keterangan'))
             ];
 
             $this->M_kriteria->inserthimpunan($dt_himpunan);
@@ -266,7 +269,12 @@ class Kriteria extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('nilai1', 'Nilai', 'trim|required', [
+        $this->form_validation->set_rules('nilai1', 'Nilai', 'trim|required|decimal', [
+            'required' => 'Kolom ini wajib diisi',
+            'decimal' => 'Kolom ini harus berisi angka desimal'
+        ]);
+
+        $this->form_validation->set_rules('keterangan1', 'Keterangan', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -311,7 +319,8 @@ class Kriteria extends CI_Controller
             $dt_himpunan = [
                 'id_kriteria' => htmlspecialchars($this->input->post('kriteria1')),
                 'range' => htmlspecialchars($this->input->post('range1')),
-                'nilai' => htmlspecialchars($this->input->post('nilai1'))
+                'nilai' => htmlspecialchars($this->input->post('nilai1')),
+                'keterangan' => htmlspecialchars($this->input->post('keterangan1'))
             ];
 
             $this->M_kriteria->updatehimpunan($dt_himpunan, $id_h);

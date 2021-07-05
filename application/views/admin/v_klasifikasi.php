@@ -21,6 +21,59 @@
         </div><!-- /.container-fluid -->
     </section>
 
+    <!-- Keterangan content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-center bg-gradient-primary">
+                        <h5 class="font-weight-bold text-uppercase">Petunjuk pengisian range kriteria</h5>
+                    </div>
+                    <?php $no = 1; ?>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-striped align-items-center">
+                            <thead>
+                                <tr class="align-items-center text-center">
+                                    <th>No</th>
+                                    <th>Kriteria</th>
+                                    <th>Range</th>
+                                    <th>Nilai</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($himpunan as $himp) : ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no++; ?></td>
+                                        <td><?= $himp['nm_kriteria']; ?></td>
+                                        <td><?= $himp['range']; ?></td>
+                                        <td><?= $himp['nilai']; ?></td>
+                                        <td><?= $himp['keterangan']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot>
+                                <tr class="align-items-center text-center">
+                                    <th>No</th>
+                                    <th>Kriteria</th>
+                                    <th>Range</th>
+                                    <th>Nilai</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -42,9 +95,9 @@
                                     <th>ID Klasifikasi</th>
                                     <th>Desa</th>
                                     <th>Kecamatan</th>
-                                    <th>Jumlah Ketersediaan</th>
-                                    <th>Jumlah Akses</th>
-                                    <th>Jumlah Pemanfaatan</th>
+                                    <th>Ketersediaan Pangan</th>
+                                    <th>Akses Pangan</th>
+                                    <th>Pemanfaatan Pangan</th>
                                     <th>Terakhir diupdate</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -56,9 +109,9 @@
                                         <td><?= $kls['id_klasifikasi']; ?></td>
                                         <td><?= $kls['nm_desa']; ?></td>
                                         <td><?= $kls['nm_kecamatan']; ?></td>
-                                        <td><?= $kls['jml_ketersediaan']; ?></td>
-                                        <td><?= $kls['jml_akses']; ?></td>
-                                        <td><?= $kls['jml_pemanfaatan']; ?></td>
+                                        <td><?= $kls['r_ketersediaan']; ?></td>
+                                        <td><?= $kls['r_akses']; ?></td>
+                                        <td><?= $kls['r_pemanfaatan']; ?></td>
                                         <td><?= date('d M Y, H:i', strtotime($kls['time_in_kls'])); ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
@@ -79,9 +132,9 @@
                                     <th>ID Klasifikasi</th>
                                     <th>Desa</th>
                                     <th>Kecamatan</th>
-                                    <th>Jumlah Ketersediaan</th>
-                                    <th>Jumlah Akses</th>
-                                    <th>Jumlah Pemanfaatan</th>
+                                    <th>Ketersediaan Pangan</th>
+                                    <th>Akses Pangan</th>
+                                    <th>Pemanfaatan Pangan</th>
                                     <th>Terakhir diupdate</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -135,19 +188,19 @@
                             <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
-                            <input type="number" name="jml_ketersediaan" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= set_value('jml_ketersediaan'); ?>" required>
-                            <?= form_error('jml_ketersediaan', '<small class="text-danger">', '</small>') ?>
+                            <label for="exampleInputEmail1">Range Ketersediaan</label>
+                            <input type="number" name="r_ketersediaan" class="form-control" id="" placeholder="Range Ketersediaan..." value="<?= set_value('r_ketersediaan'); ?>" required>
+                            <?= form_error('r_ketersediaan', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Jumlah Akses</label>
-                            <input type="number" name="jml_akses" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= set_value('jml_akses'); ?>" required>
-                            <?= form_error('jml_akses', '<small class="text-danger">', '</small>') ?>
+                            <label for="exampleInputEmail1">Range Akses</label>
+                            <input type="number" name="r_akses" class="form-control" id="" placeholder="Range Akses..." value="<?= set_value('r_akses'); ?>" required>
+                            <?= form_error('r_akses', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
-                            <input type="number" name="jml_pemanfaatan" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= set_value('jml_pemanfaatan'); ?>" required>
-                            <?= form_error('jml_pemanfaatan', '<small class="text-danger">', '</small>') ?>
+                            <label for="exampleInputEmail1">Range Pemanfaatan</label>
+                            <input type="number" name="r_pemanfaatan" class="form-control" id="" placeholder="Range Pemanfaatan..." value="<?= set_value('r_pemanfaatan'); ?>" required>
+                            <?= form_error('r_pemanfaatan', '<small class="text-danger">', '</small>') ?>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -203,19 +256,19 @@
                                 <?= form_error('nm_kec1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jumlah Ketersediaan</label>
-                                <input type="number" name="jml_ketersediaan1" class="form-control" id="" placeholder="Jumlah Ketersediaan..." value="<?= $kls['jml_ketersediaan']; ?>" required>
-                                <?= form_error('jml_ketersediaan1', '<small class="text-danger">', '</small>') ?>
+                                <label for="exampleInputEmail1">Range Ketersediaan</label>
+                                <input type="number" name="r_ketersediaan1" class="form-control" id="" placeholder="Range Ketersediaan..." value="<?= $kls['r_ketersediaan']; ?>" required>
+                                <?= form_error('r_ketersediaan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jumlah Akses</label>
-                                <input type="number" name="jml_akses1" class="form-control" id="" placeholder="Jumlah Akses..." value="<?= $kls['jml_akses']; ?>" required>
-                                <?= form_error('jml_akses1', '<small class="text-danger">', '</small>') ?>
+                                <label for="exampleInputEmail1">Range Akses</label>
+                                <input type="number" name="r_akses1" class="form-control" id="" placeholder="Range Akses..." value="<?= $kls['r_akses']; ?>" required>
+                                <?= form_error('r_akses1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jumlah Pemanfaatan</label>
-                                <input type="number" name="jml_pemanfaatan1" class="form-control" id="" placeholder="Jumlah Pemanfaatan..." value="<?= $kls['jml_akses']; ?>" required>
-                                <?= form_error('jml_pemanfaatan1', '<small class="text-danger">', '</small>') ?>
+                                <label for="exampleInputEmail1">Range Pemanfaatan</label>
+                                <input type="number" name="r_pemanfaatan1" class="form-control" id="" placeholder="Range Pemanfaatan..." value="<?= $kls['r_akses']; ?>" required>
+                                <?= form_error('r_pemanfaatan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>
                         <!-- /.card-body -->

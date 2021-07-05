@@ -8,6 +8,8 @@ class Dashboard extends CI_Controller {
         $this->load->model('admin/M_kecamatan');
         $this->load->model('admin/M_desa');
         $this->load->model('admin/M_kriteria');
+        $this->load->model('admin/M_user');
+        notLogin();
     }
 
 	public function index()
@@ -23,6 +25,9 @@ class Dashboard extends CI_Controller {
 
         /** Menghitung jumlah kriteria */
         $data['jml_kt'] = $this->M_kriteria->getkt()->num_rows();
+
+        /** Menghitung jumlah user */
+        $data['jml_usr'] = $this->M_user->getus()->num_rows();
         
         $this->load->view('admin/template_adm/header', $data);
         $this->load->view('admin/template_adm/navbar');

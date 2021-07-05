@@ -106,19 +106,37 @@
             </div>
         </li>
 
+        <?php
+            $this->db->join('hak_akses', 'hak_akses.id_akses = user.id_akses'); 
+            $user = $this->db->get_where('user', [
+                'email' => $this->session->userdata('email')
+            ])->row_array();
+        ?>
+
         <!-- User Info Dropdown Menu -->
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                <span class="d-none d-md-inline">Alex Kuproy</span>
+                <span class="d-none d-md-inline"><?= $user['nama']; ?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- User image -->
                 <li class="user-header bg-gradient-teal">
                     <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="Foto User">
                     <p>
-                        <small><span title='admin' class='badge badge-danger text-uppercase font-weight-bold'>Admin</span></small>
-                        Alex Kuproy
+                        <small>
+                            <?php 
+                                if ($user['id_akses'] == 1) {
+                                    $badge = "badge-danger";
+                                } else if ($user['id_akses'] == 2) {
+                                    $badge = "badge-warning";
+                                } else if ($user['id_akses'] == 3) {
+                                    $badge = "badge-success";
+                                }
+                            ?>
+                            <span title='admin' class='badge <?= $badge; ?> text-uppercase font-weight-bold'><?= $user['nm_akses']; ?></span>
+                        </small>
+                        <?= $user['nama']; ?>
                     </p>
                     <!-- <small>
                         <?php if ($admin['DATE_ADM'] != 0) { ?>
@@ -161,10 +179,10 @@
             <div class="modal-body">
                 <p>Apakah anda ingin keluar aplikasi?</p>
             </div>
-            <form action="<?= base_url('admin/auth') ?>" method="post">
+            <form action="<?= base_url('admin/auth/logout') ?>" method="post">
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default text-uppercase font-weight-bold" data-dismiss="modal"><i class="fas fa-ban"></i> Tidak</button>
-                    <button type="submit" class="btn bg-gradient-teal text-uppercase font-weight-bold"><i class="fas fa-sign-out-alt"></i> Ya</button>
+                    <button type="submit" class="btn bg-gradient-danger text-uppercase font-weight-bold"><i class="fas fa-sign-out-alt"></i> Ya</button>
                 </div>
             </form>
         </div>

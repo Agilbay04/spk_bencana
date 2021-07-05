@@ -63,15 +63,27 @@
             "responsive": true,
             "autoWidth": false,
         });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
+        $("#example2").DataTable({
             "responsive": true,
+            "autoWidth": false,
         });
+        $("#example3").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        $("#example4").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        // $('#example2').DataTable({
+        //     "paging": true,
+        //     "lengthChange": false,
+        //     "searching": false,
+        //     "ordering": true,
+        //     "info": true,
+        //     "autoWidth": false,
+        //     "responsive": true,
+        // });
     });
 </script>
 
@@ -88,6 +100,12 @@
             toastr.error('Data berhasil dihapus!')
         } else if (flashData == 'warning') {
             toastr.warning('Kesalahan dalam mengisi data!')
+        } else if (flashData == 'isLogin') {
+            toastr.success('Selamat datang, anda berhasil login!')
+        } else if (flashData == 'disable') {
+            toastr.error('Akun telah dinonattifkan')
+        } else if (flashData == 'enable') {
+            toastr.info('Akun telah diaktifkan')
         }
     });
 </script>
@@ -115,6 +133,30 @@
         });
     });
 </script>
+
+<!-- Ubah Password Admin -->
+<script>
+    $(document).ready(function() {
+        $('.psw').prop('hidden', true);
+        $('.psw1').prop('hidden', true);
+        $('.btn-batalpsw').prop('hidden', true);
+
+        $('.btn-ubahpsw').click(function() {
+            $('.btn-ubahpsw').prop('hidden', true);
+            $('.btn-batalpsw').prop('hidden', false);
+            $('.psw').prop('hidden', false);
+            $('.psw1').prop('hidden', false);
+        });
+
+        $('.btn-batalpsw').click(function() {
+            $('.btn-ubahpsw').prop('hidden', false);
+            $('.btn-batalpsw').prop('hidden', true);
+            $('.psw').prop('hidden', true);
+            $('.psw1').prop('hidden', true);
+        });
+    });
+</script>
+
 </body>
 
 </html>

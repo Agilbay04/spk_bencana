@@ -27,67 +27,51 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <?php if ($this->session->userdata('id_akses') == 3) : ?>
-
-                        <?php else : ?>
-                            <button class="btn bg-gradient-teal font-weight-bold text-uppercase" data-toggle="modal" data-target="#add-modal">
-                                <i class="fas fa-plus"></i>
-                                Tambah Data
-                            </button>
-                        <?php endif; ?>
+                        <button class="btn bg-gradient-teal font-weight-bold text-uppercase" data-toggle="modal" data-target="#add-modal">
+                            <i class="fas fa-plus"></i>
+                            Tambah Data
+                        </button>
                     </div>
-                    <?php $no = 1; ?>
                     <!-- /.card-header -->
+                    <?php $no = 1; ?>
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped align-items-center">
                             <thead>
                                 <tr class="align-items-center text-center">
                                     <th>No</th>
-                                    <th>ID Kecamatan</th>
-                                    <th>Nama Kecamatan</th>
+                                    <th>ID</th>
+                                    <th>Hak Akses</th>
                                     <th>Terakhir diupdate</th>
-                                    <?php if ($this->session->userdata('id_akses') == 3) : ?>
-
-                                    <?php else : ?>
-                                        <th>Aksi</th>
-                                    <?php endif; ?>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($kec as $k) : ?>
+                                <?php foreach ($hak_akses as $ha) : ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
-                                        <td><?= $k['id_kecamatan']; ?></td>
-                                        <td><?= $k['nm_kecamatan']; ?></td>
-                                        <td><?= date('d M Y, H:i', strtotime($k['time_in_kec'])); ?></td>
-                                        <?php if ($this->session->userdata('id_akses') == 3) : ?>
-
-                                        <?php else : ?>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-sm bg-gradient-teal m-1" title="edit data" data-toggle="modal" data-target="#edit-modal<?= $k['id_kecamatan']; ?>">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm bg-gradient-danger m-1" title="hapus data" data-toggle="modal" data-target="#del-modal<?= $k['id_kecamatan']; ?>">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        <?php endif; ?>
+                                        <td><?= $ha['id_akses']; ?></td>
+                                        <td><?= $ha['nm_akses']; ?></td>
+                                        <td><?= date('d M Y, H:i', strtotime($ha['time_in_ha'])); ?></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <button class="btn btn-sm bg-gradient-teal m-1" data-toggle="modal" data-target="#edit-modal<?= $ha['id_akses']; ?>" title="edit data">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm bg-gradient-danger m-1" data-toggle="modal" data-target="#del-modal<?= $ha['id_akses']; ?>" title="hapus data">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfoot>
                                 <tr class="align-items-center text-center">
                                     <th>No</th>
-                                    <th>ID Kecamatan</th>
-                                    <th>Nama Kecamatan</th>
+                                    <th>ID Hak Akses</th>
+                                    <th>Hak Akses</th>
                                     <th>Terakhir diupdate</th>
-                                    <?php if ($this->session->userdata('id_akses') == 3) : ?>
-
-                                    <?php else : ?>
-                                        <th>Aksi</th>
-                                    <?php endif; ?>
+                                    <th>Aksi</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -114,17 +98,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('admin/daerah/tbh_kecamatan'); ?>" method="POST">
+            <form action="<?= base_url('admin/user/tbh_hakAkses'); ?>" method="POST">
                 <div class="modal-body">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">ID Kecamatan</label>
-                            <input type="text" name="id_kec" class="form-control" id="" placeholder="ID Kecamatan..." value="<?= $id; ?>" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Nama Kecamatan</label>
-                            <input type="text" name="nm_kec" class="form-control" id="" placeholder="Nama kecamatan..." value="<?= set_value('nm_kec'); ?>" required>
-                            <?= form_error('nm_kec', '<small class="text-danger">', '</small>'); ?>
+                            <label for="exampleInputPassword1">Nama Hak Akses</label>
+                            <input type="text" name="nm_acs" class="form-control" id="" placeholder="Nama Hak Akses..." value="<?= set_value('nm_acs'); ?>" required>
+                            <?= form_error('nm_acs', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -141,9 +121,9 @@
 </div>
 <!-- /.modal -->
 
-<?php foreach ($kec as $k) : ?>
+<?php foreach ($hak_akses as $ha) : ?>
     <!-- modal edit form -->
-    <div class="modal fade" id="edit-modal<?= $k['id_kecamatan']; ?>">
+    <div class="modal fade" id="edit-modal<?= $ha['id_akses']; ?>">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-teal">
@@ -152,17 +132,14 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url('admin/daerah/edit_kecamatan'); ?>" method="POST">
+                <form action="<?= base_url('admin/user/edit_hakAkses'); ?>" method="POST">
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">ID Kecamatan</label>
-                                <input type="text" name="id_kec1" class="form-control" id="" placeholder="ID Kecamatan..." value="<?= $k['id_kecamatan']; ?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Nama Kecamatan</label>
-                                <input type="text" name="nm_kec1" class="form-control" id="" placeholder="Nama kecamatan..." value="<?= $k['nm_kecamatan'] ?>" required>
-                                <?= form_error('nm_kec1', '<small class="text-danger">', '</small>'); ?>
+                                <label for="exampleInputPassword1">Nama Hak Akses</label>
+                                <input type="text" name="id_acs1" id="" value="<?= $ha['id_akses']; ?>" hidden>
+                                <input type="text" name="nm_acs1" class="form-control" id="" placeholder="Nama Hak Akses..." value="<?= $ha['nm_akses'] ?>" required>
+                                <?= form_error('nm_acs1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -180,7 +157,7 @@
     <!-- /.modal -->
 
     <!-- modal delete data -->
-    <div class="modal fade" id="del-modal<?= $k['id_kecamatan']; ?>">
+    <div class="modal fade" id="del-modal<?= $ha['id_akses']; ?>">
         <div class="modal-dialog modal-xs">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-teal">
@@ -189,11 +166,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url('admin/daerah/del_kecamatan'); ?>" method="POST">
+                <form action="<?= base_url('admin/user/del_hakAkses'); ?>" method="POST">
                     <div class="modal-body">
                         <div class="card-body">
-                            <input type="text" name="id" value="<?= $k['id_kecamatan']; ?>" hidden>
-                            <p>Apakah anda ingin menghapus data kecamatan <span class="text-bold"><?= $k['nm_kecamatan']; ?></span>?</p>
+                            <input type="text" name="id_acs" value="<?= $ha['id_akses']; ?>" hidden>
+                            <p>Apakah anda ingin menghapus data ini?</p>
                         </div>
                         <!-- /.card-body -->
                     </div>

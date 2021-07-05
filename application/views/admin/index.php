@@ -10,6 +10,10 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+
+    <!-- Alert -->
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -44,42 +48,49 @@
                         <div class="icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/daerah/desa'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
 
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-gradient-teal">
-                        <div class="inner">
-                            <h3><?= $jml_kt; ?></h3>
+                <?php if ($this->session->userdata('id_akses') == 2 || $this->session->userdata('id_akses') == 3) : ?>
+                    <?php if ($this->session->userdata('id_akses') == 2) : ?>
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-gradient-teal">
+                                <div class="inner">
+                                    <h3><?= $jml_kt; ?></h3>
 
-                            <p>Data Kriteria</p>
+                                    <p>Data Kriteria</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-boxes"></i>
+                                </div>
+                                <a href="<?= base_url('admin/kriteria'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
                         </div>
-                        <div class="icon">
-                            <i class="fas fa-boxes"></i>
+                        <!-- ./col -->
+                    <?php elseif ($this->session->userdata('id_akses') == 3) : ?>
+
+                    <?php endif; ?>
+                <?php else : ?>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-gradient-teal">
+                            <div class="inner">
+                                <h3><?= $jml_usr; ?></h3>
+
+                                <p>User Aktif</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <a href="<?= base_url('admin/kriteria'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
-                <!-- ./col -->
+                    <!-- ./col -->
+                <?php endif; ?>
 
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-gradient-teal">
-                        <div class="inner">
-                            <h3>5</h3>
-
-                            <p>Perangkingan</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->

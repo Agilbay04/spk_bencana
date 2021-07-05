@@ -2,6 +2,8 @@
 <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Toastr -->
+<script src="<?= base_url() ?>assets/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
 
@@ -42,6 +44,28 @@
     }
     // ]]>
 </script>
+
+<!-- Alert -->
+<script>
+    $(function() {
+        const flashData = $('.flash-data').data('flashdata');
+
+        if (flashData == 'warning') {
+            toastr.warning('Kesalahan dalam mengisi data!')
+        } else if (flashData == 'isWrong') {
+            toastr.error('Email atau password salah')
+        } else if (flashData == 'nonActive') {
+            toastr.warning('Akun telah dinonaktifkan')
+        } else if (flashData == 'notReg') {
+            toastr.error('Email belum terdaftar')
+        } else if (flashData == 'logout') {
+            toastr.info('Anda telah logout')
+        } else if (flashData == 'isReg') {
+            toastr.success('Berhasil membuat akun')
+        }
+    });
+</script>
+
 </body>
 
 </html>
