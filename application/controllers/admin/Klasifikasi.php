@@ -116,13 +116,61 @@ class Klasifikasi extends CI_Controller
             $this->load->view('admin/template_adm/footer');
         } else {
             /** Menambahkan data ke tabel klasifikasi */
+            $jml_ketersediaan = htmlspecialchars($this->input->post('jml_ketersediaan'));
+            $jml_akses = htmlspecialchars($this->input->post('jml_akses'));
+            $jml_pemanfaatan = htmlspecialchars($this->input->post('jml_pemanfaatan'));
+            
+            //mengubah nilai ketersedian
+            if ($jml_ketersediaan <= 3) {
+                $nk_ketersediaan = 0.2;
+            } else if ($jml_ketersediaan > 3 && $jml_ketersediaan <= 5) {
+                $nk_ketersediaan = 0.4;
+            } else if ($jml_ketersediaan > 5 && $jml_ketersediaan <= 10) {
+                $nk_ketersediaan = 0.6;
+            } else if ($jml_ketersediaan > 10 && $jml_ketersediaan <= 14) {
+                $nk_ketersediaan = 0.8;
+            } else if ($jml_ketersediaan >= 15) {
+                $nk_ketersediaan = 1;
+            }
+
+
+            //mengubah nilai akses
+            if ($jml_akses <= 25) {
+                $na_akses = 0.2;
+            } else if ($jml_akses > 25 && $jml_akses <= 30) {
+                $na_akses = 0.4;
+            } else if ($jml_akses > 30 && $jml_akses <= 35) {
+                $na_akses = 0.6;
+            } else if ($jml_akses > 35 && $jml_akses <= 43) {
+                $na_akses = 0.8;
+            } else if ($jml_akses >= 44) {
+                $na_akses = 1;
+            }
+
+
+            //mengubah nilai pemanfaatan
+            if ($jml_pemanfaatan <= 3) {
+                $np_pemanfaatan = 0.2;
+            } else if ($jml_pemanfaatan > 3 && $jml_pemanfaatan <= 6) {
+                $np_pemanfaatan = 0.4;
+            } else if ($jml_pemanfaatan > 6 && $jml_pemanfaatan <= 15) {
+                $np_pemanfaatan = 0.6;
+            } else if ($jml_pemanfaatan > 15 && $jml_pemanfaatan <= 18) {
+                $np_pemanfaatan = 0.8;
+            } else if ($jml_pemanfaatan >= 19) {
+                $np_pemanfaatan = 1;
+            }
+
             $dt_kls = [
                 'id_klasifikasi' => htmlspecialchars($this->input->post('id_kls')),
                 'id_desa' => htmlspecialchars($this->input->post('nm_ds')),
                 'id_kecamatan' => htmlspecialchars($this->input->post('nm_kec')),
-                'jml_ketersediaan' => htmlspecialchars($this->input->post('jml_ketersediaan')),
-                'jml_akses' => htmlspecialchars($this->input->post('jml_akses')),
-                'jml_pemanfaatan' => htmlspecialchars($this->input->post('jml_pemanfaatan'))
+                'jml_ketersediaan' => $jml_ketersediaan,
+                'n_ketersediaan' => $nk_ketersediaan,
+                'jml_akses' =>$jml_akses,
+                'n_akses' => $na_akses,
+                'jml_pemanfaatan' => $jml_pemanfaatan,
+                'n_pemanfaatan' => $np_pemanfaatan
             ];
 
             $this->M_klasifikasi->insertkls($dt_kls);
@@ -186,12 +234,59 @@ class Klasifikasi extends CI_Controller
         } else {
             /** Menambahkan data ke tabel klasifikasi */
             $id = $this->input->post('id_kls1');
+            $ketersediaan = htmlspecialchars($this->input->post('jml_ketersediaan1'));
+            $akses =  htmlspecialchars($this->input->post('jml_akses1'));
+            $pemanfaatan = htmlspecialchars($this->input->post('jml_pemanfaatan1'));
+
+            //mengubah nilai ketersedian
+            if ($ketersediaan <= 3) {
+                $n_ketersediaan = 0.2;
+            } else if ($ketersediaan > 3 && $ketersediaan <= 5) {
+                $n_ketersediaan = 0.4;
+            } else if ($ketersediaan > 5 && $ketersediaan <= 10) {
+                $n_ketersediaan = 0.6;
+            } else if ($ketersediaan > 10 && $ketersediaan <= 14) {
+                $n_ketersediaan = 0.8;
+            } else if ($ketersediaan >= 15) {
+                $n_ketersediaan = 1;
+            }
+
+
+            //mengubah nilai akses
+            if ($akses <= 25) {
+                $n_akses = 0.2;
+            } else if ($akses > 25 && $akses <= 30) {
+                $n_akses = 0.4;
+            } else if ($akses > 30 && $akses <= 35) {
+                $n_akses = 0.6;
+            } else if ($akses > 35 && $akses <= 43) {
+                $n_akses = 0.8;
+            } else if ($akses >= 44) {
+                $n_akses = 1;
+            }
+
+
+            //mengubah nilai pemanfaatan
+            if ($pemanfaatan <= 3) {
+                $n_pemanfaatan = 0.2;
+            } else if ($pemanfaatan > 3 && $pemanfaatan <= 6) {
+                $n_pemanfaatan = 0.4;
+            } else if ($pemanfaatan > 6 && $pemanfaatan <= 15) {
+                $n_pemanfaatan = 0.6;
+            } else if ($pemanfaatan > 15 && $pemanfaatan <= 18) {
+                $n_pemanfaatan = 0.8;
+            } else if ($pemanfaatan >= 19) {
+                $n_pemanfaatan = 1;
+            }
 
             $dt_kls = [
                 'id_klasifikasi' => $id,
-                'jml_ketersediaan' => htmlspecialchars($this->input->post('jml_ketersediaan1')),
-                'jml_akses' => htmlspecialchars($this->input->post('jml_akses1')),
-                'jml_pemanfaatan' => htmlspecialchars($this->input->post('jml_pemanfaatan1'))
+                'jml_ketersediaan' => $ketersediaan,
+                'n_ketersediaan' => $n_ketersediaan,
+                'jml_akses' =>$akses,
+                'n_akses' => $n_akses,
+                'jml_pemanfaatan' => $pemanfaatan,
+                'n_pemanfaatan' => $n_pemanfaatan
             ];
 
             $this->M_klasifikasi->updatekls($dt_kls, $id);

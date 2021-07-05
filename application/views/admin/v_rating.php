@@ -23,50 +23,52 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button class="btn bg-gradient-teal font-weight-bold text-uppercase" data-toggle="modal" data-target="#add-modal">
-                            <i class="fas fa-plus"></i>
-                            Tambah Data
-                        </button>
+                        <form action="<?= base_url('admin/rating'); ?>" method="post">
+                            <div class="row">
+                                <div class="d-flex">
+                                    <div class="mr-2">
+                                        <select name="kec" class="form-control" id="">
+                                            <option value="" selected><span class="text-muted">--Pilih Kecamatan--</span></option>
+                                            <?php foreach ($kec as $k) : ?>
+                                                <option value="<?= $k['id_kecamatan']; ?>" <?= set_select('kec', $k['id_kecamatan']); ?>><?= $k['nm_kecamatan']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="mr-2">
+                                        <button class="btn bg-gradient-primary font-weight-bold text-uppercase">
+                                            <i class="fas fa-search"></i>
+                                            cari
+                                        </button>
+                                    </div>  
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped align-items-center">
                             <thead>
                                 <tr class="align-items-center text-center">
-                                    <th>No</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>Aksi</th>
+                                    <th>No Perangkingan</th>
+                                    <th>Nama Desa</th>
+                                    <th>Hasil Perangkingan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>
-                                        <div class="d-flex justify-content-center">
-                                            <button class="btn btn-sm bg-gradient-teal m-1" title="edit data">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-sm bg-gradient-teal m-1" title="hapus data">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php $no = 1; ?>
+                                <?php foreach($hasil_desa as $hsd) : ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no++; ?></td>
+                                        <td><?= $hsd['nm_desa']; ?></td>
+                                        <td><?= $hsd['hasil_akhir']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                             <tfoot>
                                 <tr class="align-items-center text-center">
-                                    <th>No</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>Aksi</th>
+                                    <th>No Perangkingan</th>
+                                    <th>Nama Desa</th>
+                                    <th>Hasil Perangkingan</th>
                                 </tr>
                             </tfoot>
                         </table>
