@@ -53,26 +53,28 @@
                 </div>
                 <!-- ./col -->
 
-                <?php if ($this->session->userdata('id_akses') == 2 || $this->session->userdata('id_akses') == 3) : ?>
-                    <?php if ($this->session->userdata('id_akses') == 2) : ?>
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-gradient-teal">
-                                <div class="inner">
-                                    <h3><?= $jml_kt; ?></h3>
+                <?php if ($this->session->userdata('id_akses') == 1 || $this->session->userdata('id_akses') == 2) : ?>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-gradient-teal">
+                            <div class="inner">
+                                <h3><?= $jml_kt; ?></h3>
 
-                                    <p>Data Kriteria</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-boxes"></i>
-                                </div>
-                                <a href="<?= base_url('admin/kriteria'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+                                <p>Data Kriteria</p>
                             </div>
+                            <div class="icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <a href="<?= base_url('admin/kriteria'); ?>" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- ./col -->
-                    <?php elseif ($this->session->userdata('id_akses') == 3) : ?>
+                    </div>
+                    <!-- ./col -->
+                <?php elseif ($this->session->userdata('id_akses') == 3) : ?>
 
-                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($this->session->userdata('id_akses') != 1) : ?>
+
                 <?php else : ?>
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
@@ -90,7 +92,6 @@
                     </div>
                     <!-- ./col -->
                 <?php endif; ?>
-
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
