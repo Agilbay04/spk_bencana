@@ -68,8 +68,9 @@ class Klasifikasi extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('nm_ds', 'Nm_ds', 'trim|required', [
-            'required' => 'Kolom ini wajib diisi'
+        $this->form_validation->set_rules('nm_ds', 'Nm_ds', 'trim|required|is_unique[klasifikasi.id_desa]', [
+            'required' => 'Kolom ini wajib diisi',
+            'is_unique' => 'Data ini sudah ada'
         ]);
 
         $this->form_validation->set_rules('r_ketersediaan', 'R_k', 'trim|required', [
@@ -115,6 +116,9 @@ class Klasifikasi extends CI_Controller
 
             /** Mengirim id ke view */
             $data['id_kls'] = $id_kls;
+            
+            /** Alert validasi salah */
+            $this->session->set_flashdata('message', 'warning');
 
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
@@ -172,11 +176,11 @@ class Klasifikasi extends CI_Controller
                 'id_klasifikasi' => htmlspecialchars($this->input->post('id_kls')),
                 'id_desa' => htmlspecialchars($this->input->post('nm_ds')),
                 'id_kecamatan' => htmlspecialchars($this->input->post('nm_kec')),
-                'jml_ketersediaan' => $jml_ketersediaan,
+                'r_ketersediaan' => $jml_ketersediaan,
                 'n_ketersediaan' => $nk_ketersediaan,
-                'jml_akses' =>$jml_akses,
+                'r_akses' =>$jml_akses,
                 'n_akses' => $na_akses,
-                'jml_pemanfaatan' => $jml_pemanfaatan,
+                'r_pemanfaatan' => $jml_pemanfaatan,
                 'n_pemanfaatan' => $np_pemanfaatan
             ];
 
@@ -291,11 +295,11 @@ class Klasifikasi extends CI_Controller
 
             $dt_kls = [
                 'id_klasifikasi' => $id,
-                'jml_ketersediaan' => $ketersediaan,
+                'r_ketersediaan' => $ketersediaan,
                 'n_ketersediaan' => $n_ketersediaan,
-                'jml_akses' =>$akses,
+                'r_akses' =>$akses,
                 'n_akses' => $n_akses,
-                'jml_pemanfaatan' => $pemanfaatan,
+                'r_pemanfaatan' => $pemanfaatan,
                 'n_pemanfaatan' => $n_pemanfaatan
             ];
 
