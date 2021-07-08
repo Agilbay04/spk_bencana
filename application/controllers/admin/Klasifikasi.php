@@ -11,6 +11,8 @@ class Klasifikasi extends CI_Controller
         $this->load->model('admin/M_klasifikasi');
         $this->load->model('admin/M_kecamatan');
         $this->load->model('admin/M_desa');
+        notLogin();
+        cekakses();
     }
 
     public function index()

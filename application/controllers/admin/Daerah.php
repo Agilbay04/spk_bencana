@@ -8,8 +8,10 @@ class Daerah extends CI_Controller
         parent::__construct();
         $this->load->model('admin/M_kecamatan');
         $this->load->model('admin/M_desa');
+        notLogin();
     }
 
+    /** ================================== KECAMATAN ================================== */
     public function kecamatan()
     {
         $data['title'] = 'SPK-BP | Kecamatan';
@@ -154,6 +156,8 @@ class Daerah extends CI_Controller
         redirect('admin/daerah/kecamatan');
     }
 
+
+    /** ================================== DESA ================================== */
     public function desa()
     {
         $data['title'] = 'SPK-BP | Desa';
@@ -199,15 +203,17 @@ class Daerah extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('kd_pos', 'Kd_pos', 'trim|required', [
+        $this->form_validation->set_rules('kd_pos', 'Kd_pos', 'trim|required|min_length[5]|max_length[5]', [
+            'required' => 'Kolom ini wajib diisi',
+            'min_length' => 'Format kode pos salah',
+            'max_length' => 'Format kode pos salah'
+        ]);
+
+        $this->form_validation->set_rules('prd_padi', 'Prd_padi', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('prd_padi', 'Prd_padi', 'trim|required|decimal', [
-            'required' => 'Kolom ini wajib diisi'
-        ]);
-
-        $this->form_validation->set_rules('prd_jagung', 'Prd_jagung', 'trim|required|decimal', [
+        $this->form_validation->set_rules('prd_jagung', 'Prd_jagung', 'trim|required', [
             'required' => 'Kolom ini wajib diisi'
         ]);
 
@@ -278,8 +284,10 @@ class Daerah extends CI_Controller
             'required' => 'Kolom ini wajib diisi'
         ]);
 
-        $this->form_validation->set_rules('kd_pos1', 'Kd_pos', 'trim|required', [
-            'required' => 'Kolom ini wajib diisi'
+        $this->form_validation->set_rules('kd_pos1', 'Kd_pos', 'trim|required|min_length[5]|max_length[5]', [
+            'required' => 'Kolom ini wajib diisi',
+            'min_length' => 'Format kode pos salah',
+            'max_length' => 'Format kode pos salah'
         ]);
 
         $this->form_validation->set_rules('prd_padi1', 'Prd_padi', 'trim|required', [

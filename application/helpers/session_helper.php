@@ -9,28 +9,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     }
 
-    // function psrt_logged_in()
-    // {
-    //     $var_ci = get_instance();
-    //     if (!$var_ci->session->userdata('email')) {
-    //         redirect('auth');
-    //     }
-    // }
+    function cekadm()
+    {
+        $var_ci = get_instance();
+        if($var_ci->session->userdata('id_akses') != 1) {
+            redirect('block');
+            die;
+        }
+    }
 
-    // function cekadm()
-    // {
-    //     $var_ci = get_instance();
-    //     if($var_ci->session->userdata('role') != 1) {
-    //         redirect('block');
-    //         die;
-    //     }
-    // }
-
-    // function cekpsrt()
-    // {
-    //     $var_ci = get_instance();
-    //     if($var_ci->session->userdata('role') != 2) {
-    //         redirect('block');
-    //         die;
-    //     }
-    // }
+    function cekakses()
+    {
+        $var_ci = get_instance();
+        if($var_ci->session->userdata('id_akses') != 1 && $var_ci->session->userdata('id_akses') != 2) {
+            redirect('block');
+            die;
+        }
+    }

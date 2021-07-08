@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Rating extends CI_Controller {
+class Rating extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
         $this->load->model('admin/M_hasildesa');
         $this->load->model('admin/M_kecamatan');
+        notLogin();
     }
 
     public function index()
@@ -17,14 +19,14 @@ class Rating extends CI_Controller {
         // /** Mencari nilai seluruhnya */
         $data = $this->db->get_where('klasifikasi', [
             'id_kecamatan' => $id_kecamatan
-        ])->result_array();    
+        ])->result_array();
 
-        if ($data == null ) {
+        if ($data == null) {
             $id_kec = null;
             $data['hasil_desa'] = $this->M_hasildesa->gethsd($id_kec)->result_array();
             $data['title'] = 'SPK-BP | Perangkingan';
             $data['judul'] = 'Perangkingan';
-            
+
             $data['kec'] = $this->M_kecamatan->getkec()->result_array();
 
             $this->load->view('admin/template_adm/header', $data);
@@ -32,19 +34,6 @@ class Rating extends CI_Controller {
             $this->load->view('admin/template_adm/sidebar');
             $this->load->view('admin/v_rating', $data);
             $this->load->view('admin/template_adm/footer');
-        // } else if ($id_kecamatan != $data) {
-        //     $id_kec = $id_kecamatan;
-        //     $data['hasil_desa'] = $this->M_hasildesa->gethsd($id_kec)->result_array();
-        //     $data['title'] = 'SPK-BP | Perangkingan';
-        //     $data['judul'] = 'Perangkingan';
-            
-        //     $data['kec'] = $this->M_kecamatan->getkec()->result_array();
-
-        //     $this->load->view('admin/template_adm/header', $data);
-        //     $this->load->view('admin/template_adm/navbar');
-        //     $this->load->view('admin/template_adm/sidebar');
-        //     $this->load->view('admin/v_rating', $data);
-        //     $this->load->view('admin/template_adm/footer');
         } else {
             /** Mencari nilai max ketersedian */
             $this->db->select_max('n_ketersediaan');
@@ -52,33 +41,33 @@ class Rating extends CI_Controller {
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
 
-            
+
             $this->db->select_max('n_akses');
             $data_a = $this->db->get_where('klasifikasi', [
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
 
-            
+
             $this->db->select_max('n_pemanfaatan');
             $data_p = $this->db->get_where('klasifikasi', [
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
-            
+
             /** Normalisasi */
             foreach ($data as $dt_normal) {
                 $nk = $dt_normal['n_ketersediaan'];
                 $na = $dt_normal['n_akses'];
                 $np = $dt_normal['n_pemanfaatan'];
 
-                $k_normal = $nk/$data_k['n_ketersediaan'];
-                $a_normal = $na/$data_a['n_akses'];
-                $p_normal = $np/$data_p['n_pemanfaatan'];
+                $k_normal = $nk / $data_k['n_ketersediaan'];
+                $a_normal = $na / $data_a['n_akses'];
+                $p_normal = $np / $data_p['n_pemanfaatan'];
 
                 $b_ketersedian = 3.2;
                 $b_akses = 6.6;
                 $b_pemanfaatan = 6;
 
-                $hasil = ($b_ketersedian * $k_normal) + ($b_akses * $a_normal) +($b_pemanfaatan * $p_normal);
+                $hasil = ($b_ketersedian * $k_normal) + ($b_akses * $a_normal) + ($b_pemanfaatan * $p_normal);
 
                 $d = [
                     'id_desa' => $dt_normal['id_desa'],
@@ -104,10 +93,22 @@ class Rating extends CI_Controller {
             }
 
             $data['hasil_desa'] = $this->M_hasildesa->gethsd($id_kec)->result_array();
+            $data['hasil'] = $this->M_hasildesa->gethsd($id_kec)->row_array();
             $data['title'] = 'SPK-BP | Perangkingan';
             $data['judul'] = 'Perangkingan';
-            
+
             $data['kec'] = $this->M_kecamatan->getkec()->result_array();
+
+            /** Alert */
+            $this->session->set_flashdata('notif', 
+            '<div class="alert bg-gradient-danger" role="alert">
+                <h4 class="alert-heading">
+                    Hasil Perangkingan Menunjukkan:
+                    <span class="font-weight-bold">Desa ' . $data['hasil']['nm_desa'] . '</span> 
+                    <span class="font-weight-bold">, Kecamatan ' . $data['hasil']['nm_kecamatan'] . '</span>
+                    merupakan daerah yang rawan bencana pangan.
+                </h4>
+            </div>');
 
             $this->load->view('admin/template_adm/header', $data);
             $this->load->view('admin/template_adm/navbar');
@@ -116,5 +117,4 @@ class Rating extends CI_Controller {
             $this->load->view('admin/template_adm/footer');
         }
     }
-    
 }

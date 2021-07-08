@@ -19,6 +19,10 @@
 
     <!-- Main content -->
     <section class="content">
+        <!-- Notifikasi -->
+        <?= $this->session->flashdata('notif'); ?>
+        <!-- /. Notifikasi -->
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -35,11 +39,11 @@
                                         </select>
                                     </div>
                                     <div class="mr-2">
-                                        <button class="btn bg-gradient-primary font-weight-bold text-uppercase">
+                                        <button class="btn bg-gradient-teal font-weight-bold text-uppercase">
                                             <i class="fas fa-search"></i>
                                             cari
                                         </button>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -56,7 +60,7 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php foreach($hasil_desa as $hsd) : ?>
+                                <?php foreach ($hasil_desa as $hsd) : ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td><?= $hsd['nm_desa']; ?></td>

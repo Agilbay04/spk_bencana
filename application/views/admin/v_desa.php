@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Kode Pos</label>
-                            <input type="number" name="kd_pos" class="form-control" id="" <?= set_value('kd_pos') ?> placeholder="Kode pos...">
+                            <input type="number" name="kd_pos" class="form-control" id="" value="<?= set_value('kd_pos') ?>" placeholder="Kode pos...">
                             <?= form_error('kd_pos', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">

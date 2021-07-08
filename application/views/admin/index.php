@@ -3,9 +3,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark font-weight-bold text-uppercase"><?= $judul; ?></h1>
+                    <!-- <h1 class="m-0 text-dark font-weight-bold text-uppercase"><?= $judul; ?></h1> -->
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -18,7 +18,19 @@
 
     <!-- Main content -->
     <section class="content">
+        <!-- Jumbotron -->
         <div class="container-fluid">
+            <div class="jumbotron bg-gradient-gray-dark">
+                <h1 class="display-4 font-weight-bold text-uppercase">Sistem Pendukung Keputusan </h1>
+                <h2 class="font-weight-bold text-uppercase">Perangkingan Daerah Rawan Bencana Pangan Kabupaten Jember</h2>
+                <hr class="my-4">
+                <p>Sistem Informasi yang dapat membantu untuk menentukan daerah yang memiliki kerawanan bencana pangan di Kabupaten Jember.</p>
+                <a class="btn bg-gradient-teal btn-lg font-weight-bold text-uppercase" href="#" data-target="#card-dashboard" role="button">Selengkapnya</a>
+            </div>
+        </div>
+        <!-- /. End Jumbotron -->
+
+        <div class="container-fluid" id="card-dashboard">
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-3 col-6">
@@ -95,33 +107,6 @@
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
-
-        <!-- Carousel -->
-        <div class="container-fluid">
-            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="10000">
-                        <img src="<?= base_url(); ?>/assets/img/Gambar1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-interval="2000">
-                        <img src="<?= base_url(); ?>/assets/img/Gambar1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url(); ?>/assets/img/Gambar1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-        <!-- end Carousel -->
-
     </section>
     <!-- /.content -->
 </div>

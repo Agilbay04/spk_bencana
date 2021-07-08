@@ -145,7 +145,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Nama Kriteria</label>
-                                <input type="text" name="nm_kt1 class="form-control" id="" placeholder="Nama kriteria..." value="<?= $kt['nm_kriteria'] ?>" required>
+                                <input type="text" name="nm_kt1" class="form-control" id="" placeholder="Nama kriteria..." value="<?= $kt['nm_kriteria'] ?>" required>
                                 <?= form_error('nm_kec1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>

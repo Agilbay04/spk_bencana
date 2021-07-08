@@ -7,6 +7,8 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin/M_user');
+        notLogin();
+        cekadm();
     }
 
     /** ================================ HAK AKSES ================================ */
@@ -204,7 +206,7 @@ class User extends CI_Controller
                 'nama' => htmlspecialchars($this->input->post('nm_ptgs')),
                 'email' => htmlspecialchars($this->input->post('em_ptgs')),
                 'password' => password_hash(htmlspecialchars($this->input->post('psw_ptgs1')), PASSWORD_DEFAULT),
-                'id_akses' => 'AKS000000000002',
+                'id_akses' => 2,
                 'status' => 0
             ];
 

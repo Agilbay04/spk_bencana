@@ -7,6 +7,8 @@ class Kriteria extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin/M_kriteria');
+        notLogin();
+        cekakses();
     }
 
     public function index()
@@ -156,8 +158,8 @@ class Kriteria extends CI_Controller
     /** Range kriteria */
     public function himpunan()
     {
-        $data['title'] = 'SPK-BP | Himpunan Kriteria';
-        $data['judul'] = 'Himpunan Kriteria';
+        $data['title'] = 'SPK-BP | Range Kriteria';
+        $data['judul'] = 'Range Kriteria';
 
         /** Mengambil data kriteria */
         $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
@@ -209,8 +211,8 @@ class Kriteria extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'SPK-BP | Himpunan Kriteria';
-            $data['judul'] = 'Himpunan Kriteria';
+            $data['title'] = 'SPK-BP | Range Kriteria';
+            $data['judul'] = 'Range Kriteria';
 
             /** Mengambil data kriteria */
             $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
@@ -279,8 +281,8 @@ class Kriteria extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'SPK-BP | Himpunan Kriteria';
-            $data['judul'] = 'Himpunan Kriteria';
+            $data['title'] = 'SPK-BP | Range Kriteria';
+            $data['judul'] = 'Range Kriteria';
 
             /** Mengambil data kriteria */
             $data['kriteria'] = $this->M_kriteria->getkt()->result_array();

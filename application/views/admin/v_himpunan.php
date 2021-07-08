@@ -119,19 +119,19 @@
                             <select name="kriteria" class="form-control" id="" required>
                                 <option value="" selected><span class="text-muted">--Pilih Kriteria--</span></option>
                                 <?php foreach ($kriteria as $kt) : ?>
-                                    <option value="<?= $kt['id_kriteria']; ?>"><?= $kt['nm_kriteria']; ?></option>
+                                    <option value="<?= $kt['id_kriteria']; ?>" <?= set_select('kriteria', $kt['id_kriteria']); ?>><?= $kt['nm_kriteria']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <?= form_error('kriteria', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Range</label>
-                            <input type="text" name="range" class="form-control" id="" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." required>
+                            <input type="text" name="range" class="form-control" id="" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." value="<?= set_value('range'); ?>" required>
                             <?= form_error('range', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nilai</label>
-                            <input type="text" name="nilai" class="form-control" id="" placeholder="angka harus desimal dan tidak lebih besar dari 1 contoh: 1.0, 0.4, dst..." required>
+                            <input type="text" name="nilai" class="form-control" id="" placeholder="angka harus desimal dan tidak lebih besar dari 1 contoh: 1.0, 0.4, dst..." value="<?= set_value('nilai'); ?>" required>
                             <?= form_error('nilai', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -140,7 +140,7 @@
                                 <option value="" selected><span class="text-muted">--Keterangan nilai--</span></option>
                                 <?php $dt_ket = ['Sangat Tinggi', 'Tinggi', 'Cukup', 'Rendah', 'Sangat Rendah']; ?>
                                 <?php foreach ($dt_ket as $ket) : ?>
-                                    <option value="<?= $ket; ?>"><?= $ket; ?></option>
+                                    <option value="<?= $ket; ?>" <?= set_select('keterangan', $ket); ?>><?= $ket; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <?= form_error('keterangan', '<small class="text-danger">', '</small>') ?>

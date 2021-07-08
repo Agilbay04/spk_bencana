@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header text-center bg-gradient-primary">
+                    <div class="card-header text-center bg-gradient-gray-dark">
                         <h5 class="font-weight-bold text-uppercase">Petunjuk pengisian range kriteria</h5>
                     </div>
                     <?php $no = 1; ?>
