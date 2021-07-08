@@ -127,9 +127,9 @@ class Klasifikasi extends CI_Controller
             $this->load->view('admin/template_adm/footer');
         } else {
             /** Menambahkan data ke tabel klasifikasi */
-            $jml_ketersediaan = htmlspecialchars($this->input->post('jml_ketersediaan'));
-            $jml_akses = htmlspecialchars($this->input->post('jml_akses'));
-            $jml_pemanfaatan = htmlspecialchars($this->input->post('jml_pemanfaatan'));
+            $jml_ketersediaan = htmlspecialchars($this->input->post('r_ketersediaan'));
+            $jml_akses = htmlspecialchars($this->input->post('r_akses'));
+            $jml_pemanfaatan = htmlspecialchars($this->input->post('r_pemanfaatan'));
             
             //mengubah nilai ketersedian
             if ($jml_ketersediaan <= 3) {
@@ -248,9 +248,9 @@ class Klasifikasi extends CI_Controller
         } else {
             /** Menambahkan data ke tabel klasifikasi */
             $id = $this->input->post('id_kls1');
-            $ketersediaan = htmlspecialchars($this->input->post('jml_ketersediaan1'));
-            $akses =  htmlspecialchars($this->input->post('jml_akses1'));
-            $pemanfaatan = htmlspecialchars($this->input->post('jml_pemanfaatan1'));
+            $ketersediaan = htmlspecialchars($this->input->post('r_ketersediaan1'));
+            $akses =  htmlspecialchars($this->input->post('r_akses1'));
+            $pemanfaatan = htmlspecialchars($this->input->post('r_pemanfaatan1'));
 
             //mengubah nilai ketersedian
             if ($ketersediaan <= 3) {
