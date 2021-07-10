@@ -10,7 +10,9 @@
     <div class="card login-card shadow-lg">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Login Aplikasi</p>
-
+            <div class="flashdata">
+                <?php echo $this->session->flashdata('pesan'); ?>
+            </div>
             <form action="<?= base_url('admin/auth') ?>" method="post">
                 <div class="input-group mb-3">
                     <input type="email" name="email" class="form-control" placeholder="Email..." value="<?= set_value('email'); ?>" required>

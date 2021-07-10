@@ -116,13 +116,13 @@
         <!-- User Info Dropdown Menu -->
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                <img src="<?= base_url() ?>assets/dist/img/user/<?= $user['foto']?>" class="user-image img-circle elevation-2" alt="User Image">
                 <span class="d-none d-md-inline"><?= $user['nama']; ?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- User image -->
                 <li class="user-header bg-gradient-teal">
-                    <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="Foto User">
+                    <img src="<?= base_url() ?>assets/dist/img/user/<?= $user['foto']?>" class="img-circle" alt="Foto User">
                     <p>
                         <small>
                             <?php 
@@ -149,14 +149,18 @@
                 <!-- Menu Body -->
                 <!-- Menu Footer-->
                 <li class="user-footer d-flex">
-                    <a href="<?= base_url('admin/profile'); ?>" class="btn btn-sm bg-gradient-teal text-uppercase font-weight-bold">
+                    <a href="<?= base_url() ?>admin/profile/edit_profil" class="btn btn-sm mr-1 ml-1 bg-gradient-teal text-uppercase font-weight-bold">
                         <i class="fas fa-user"></i>
                         Profil
                     </a>
-                    <button type="button" class="btn btn-sm bg-gradient-danger ml-auto text-uppercase font-weight-bold" data-toggle="modal" data-target="#logout-modal">
+                    <a href="<?= base_url() ?>admin/profile/ubah_password" class="btn btn-sm mr-1 ml-1 bg-gradient-teal text-uppercase font-weight-bold">
+                        <i class="fas fa-key"></i>
+                        Sandi
+                    </a>
+                    <a href="#" class="btn btn-sm mr-1 ml-1 bg-gradient-danger ml-auto text-uppercase font-weight-bold" data-toggle="modal" data-target="#logout-modal">
                         <i class="fas fa-sign-out-alt"></i>
                         Keluar
-                    </button>
+                    </a>
                 </li>
             </ul>
         </li>
