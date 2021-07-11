@@ -161,6 +161,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('admin/developer'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "developer") {
+                                                                                    echo "active";
+                                                                                } ?>">
+                        <i class="nav-icon fas fa-code"></i>
+                        <p>
+                            Developer
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('admin/auth/logout'); ?>" class="nav-link active bg-gradient-danger" data-toggle="modal" data-target="#logout-modal">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>

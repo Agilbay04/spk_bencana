@@ -47,7 +47,7 @@
 
 <!-- Alert -->
 <script>
-    $(function() {
+    $(document).ready(function() {
         const flashData = $('.flash-data').data('flashdata');
 
         if (flashData == 'warning') {

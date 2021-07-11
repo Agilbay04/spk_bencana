@@ -161,6 +161,7 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('email');
+        $this->session->unset_userdata('id_akses');
         $this->session->set_flashdata('message', 'logout');
         redirect('admin/auth');
     }
