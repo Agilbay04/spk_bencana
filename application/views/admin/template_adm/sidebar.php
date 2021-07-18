@@ -171,6 +171,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('admin/about'); ?>" class="nav-link <?php if ($this->uri->segment(2) == "about") {
+                                                                                    echo "active";
+                                                                                } ?>">
+                        <i class="nav-icon fas fa-info"></i>
+                        <p>
+                            Tentang
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('admin/auth/logout'); ?>" class="nav-link active bg-gradient-danger" data-toggle="modal" data-target="#logout-modal">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
