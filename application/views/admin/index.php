@@ -94,7 +94,7 @@
                             <div class="inner">
                                 <h3><?= $jml_usr; ?></h3>
 
-                                <p>User Aktif</p>
+                                <p>Pengguna Aktif</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-users"></i>

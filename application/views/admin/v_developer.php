@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -32,9 +32,9 @@
                         <div class="row">
                             <div class="col-7">
                                 <h2 class="lead font-weight-bold">Nurlaita Afia Tri Wahyuni</h2>
-                                <p class="text-muted text-sm"><b>About: </b> Frontend Developer / UI/UX Designer </p>
+                                <p class="text-muted text-sm"><b>Sebagai: </b> Frontend Developer / UI/UX Designer </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Sukamakmur, Ajung, Jember City</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Sukamakmur, Ajung, Jember City</li>
                                 </ul>
                             </div>
                             <div class="col-5 text-center">
@@ -68,9 +68,9 @@
                         <div class="row">
                             <div class="col-7">
                                 <h2 class="lead font-weight-bold"><b>Moh. Saidul Musthofa</b></h2>
-                                <p class="text-muted text-sm"><b>About: </b> Research & Development / Backend Developer </p>
+                                <p class="text-muted text-sm"><b>Sebagai: </b> Research & Development / Backend Developer </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Far far away, Probolinggo City</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Kabupaten Probolinggo</li>
                                 </ul>
                             </div>
                             <div class="col-5 text-center">
@@ -104,9 +104,9 @@
                         <div class="row">
                             <div class="col-7">
                                 <h2 class="lead font-weight-bold"><b>M. Wildan Aulia Kahfi</b></h2>
-                                <p class="text-muted text-sm"><b>About: </b> Backend Developer / QA Engineer </p>
+                                <p class="text-muted text-sm"><b>Sebagai: </b> Backend Developer / QA Engineer </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Location Unknown, Banyuwangi City</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Mangli, Karangsari, Sempu, Kabupaten Banyuwangi</li>
                                 </ul>
                             </div>
                             <div class="col-5 text-center">
@@ -140,9 +140,9 @@
                         <div class="row">
                             <div class="col-7">
                                 <h2 class="lead font-weight-bold"><b>Bayu Agil Prananda</b></h2>
-                                <p class="text-muted text-sm"><b>About: </b> Backend Developer / Database Administrator </p>
+                                <p class="text-muted text-sm"><b>Sebagai: </b> Backend Developer / Database Administrator </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Duwet, Wates, Kediri City</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Duwet, Wates, Kediri City</li>
                                 </ul>
                             </div>
                             <div class="col-5 text-center">

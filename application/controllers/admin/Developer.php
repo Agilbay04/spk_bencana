@@ -11,8 +11,8 @@ class Developer extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "SPK-BP | Developer";
-        $data['judul'] = "Developer";
+        $data['title'] = "SPK-BP | Tim Pengembang";
+        $data['judul'] = "Tim Pengembang";
         $this->load->view('admin/template_adm/header', $data);
         $this->load->view('admin/template_adm/navbar');
         $this->load->view('admin/template_adm/sidebar');

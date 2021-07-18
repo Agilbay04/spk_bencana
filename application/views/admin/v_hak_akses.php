@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -41,7 +41,7 @@
                                     <th>No</th>
                                     <th>ID</th>
                                     <th>Hak Akses</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -70,7 +70,7 @@
                                     <th>No</th>
                                     <th>ID Hak Akses</th>
                                     <th>Hak Akses</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>

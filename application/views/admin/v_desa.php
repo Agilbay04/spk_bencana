@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -50,7 +50,7 @@
                                     <th>Produksi Padi</th>
                                     <th>Produksi Jagung</th>
                                     <th>Populasi</th>
-                                    <th>Terakhir Diupdate</th>
+                                    <th>Terakhir Diperbarui</th>
                                     <?php if ($this->session->userdata('id_akses') == 3) : ?>
 
                                     <?php else : ?>
@@ -97,7 +97,7 @@
                                     <th>Produksi Padi</th>
                                     <th>Produksi Jagung</th>
                                     <th>Populasi</th>
-                                    <th>Terakhir Diupdate</th>
+                                    <th>Terakhir Diperbarui</th>
                                     <?php if ($this->session->userdata('id_akses') == 3) : ?>
 
                                     <?php else : ?>
@@ -202,7 +202,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-teal">
-                    <h4 class="modal-title font-weight-bold text-uppercase">Tambah Data</h4>
+                    <h4 class="modal-title font-weight-bold text-uppercase">Edit Data</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

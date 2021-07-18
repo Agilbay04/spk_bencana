@@ -9,7 +9,7 @@
     <!-- /.login-logo -->
     <div class="card login-card shadow-lg">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Login Aplikasi</p>
+            <p class="login-box-msg">Masuk Aplikasi</p>
             <div class="flashdata">
                 <?php echo $this->session->flashdata('pesan'); ?>
             </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password..." required>
+                    <input type="password" name="password" class="form-control" placeholder="Kata Sandi..." required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock text-teal"></span>
@@ -41,10 +41,10 @@
                 </div>
             </form>
             <p class="mb-1 text-teal">
-                <a href="<?= base_url('admin/auth/forget') ?>" class=" text-teal">Lupa password?</a>
+                <a href="<?= base_url('admin/auth/forget') ?>" class=" text-teal">Lupa Kata Sandi?</a>
             </p>
             <p class="mb-0">
-                <a href="<?= base_url('admin/auth/register') ?>" class="text-teal">Belum punya akun? Register disini</a>
+                <a href="<?= base_url('admin/auth/register') ?>" class="text-teal">Belum punya akun? Daftar disini</a>
             </p>
         </div>
         <!-- /.login-card-body -->

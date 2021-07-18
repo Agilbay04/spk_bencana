@@ -158,8 +158,8 @@ class Kriteria extends CI_Controller
     /** Range kriteria */
     public function himpunan()
     {
-        $data['title'] = 'SPK-BP | Range Kriteria';
-        $data['judul'] = 'Range Kriteria';
+        $data['title'] = 'SPK-BP | Jarak Kriteria';
+        $data['judul'] = 'Jarak Kriteria';
 
         /** Mengambil data kriteria */
         $data['kriteria'] = $this->M_kriteria->getkt()->result_array();
@@ -211,8 +211,8 @@ class Kriteria extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'SPK-BP | Range Kriteria';
-            $data['judul'] = 'Range Kriteria';
+            $data['title'] = 'SPK-BP | Jarak Kriteria';
+            $data['judul'] = 'Jarak Kriteria';
 
             /** Mengambil data kriteria */
             $data['kriteria'] = $this->M_kriteria->getkt()->result_array();

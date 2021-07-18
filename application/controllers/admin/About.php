@@ -15,7 +15,8 @@ class About extends CI_Controller
     {
         $email = $this->session->userdata('email');
         $data['user'] = $this->M_crud->edit($email)->result_array();
-        $data['title'] = "Tentang SAW";
+        $data['title'] = "SPK-BP | Tentang SAW";
+        $data['judul'] = "Tentang SAW";
 
         $this->load->view('admin/template_adm/header', $data);
         $this->load->view('admin/template_adm/navbar');

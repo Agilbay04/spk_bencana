@@ -19,7 +19,7 @@
                                                                                     } ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            Beranda
                         </p>
                     </a>
                 </li>
@@ -35,7 +35,7 @@
                                                     } ?>">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Manajemen User
+                                Manajemen Pengguna
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -131,7 +131,7 @@
                                                                                                             echo "active";
                                                                                                         } ?>">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Range Kriteria</p>
+                                    <p>Jarak Kriteria</p>
                                 </a>
                             </li>
                         </ul>
@@ -166,7 +166,7 @@
                                                                                 } ?>">
                         <i class="nav-icon fas fa-code"></i>
                         <p>
-                            Developer
+                            Tim Pengembang
                         </p>
                     </a>
                 </li>
