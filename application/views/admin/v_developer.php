@@ -34,7 +34,7 @@
 								<h2 class="lead font-weight-bold">Nurlaita Afia Tri Wahyuni</h2>
 								<p class="text-muted text-sm"><b>As: </b> Frontend Developer / UI/UX Designer </p>
 								<ul class="ml-4 mb-0 fa-ul text-muted">
-									<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Cari Saja Sendiri Ya, Jember City</li>
+									<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jember City</li>
 								</ul>
 							</div>
 							<div class="col-5 text-center">

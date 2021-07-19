@@ -5,12 +5,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Tentang SPK-BP Jember</h1>
+					<h1><?= $judul; ?></h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>" class="text-teal">Beranda</a></li>
-						<li class="breadcrumb-item active"> Tentang SPK-BP Jember </li>
+						<li class="breadcrumb-item active"> <?= $judul; ?> </li>
 					</ol>
 				</div>
 			</div>
