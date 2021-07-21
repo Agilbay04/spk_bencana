@@ -35,39 +35,53 @@ class Rating extends CI_Controller
             $this->load->view('admin/v_rating', $data);
             $this->load->view('admin/template_adm/footer');
         } else {
+
+            /** Mencari vektor bobot */
+            $this->db->select_sum('n_ketersediaan');
+            $bobot_k = $this->db->get_where('klasifikasi', [
+                'id_kecamatan' => $id_kecamatan
+                ])->row_array();
+
+            $this->db->select_sum('n_akses');
+            $bobot_a = $this->db->get_where('klasifikasi', [
+                'id_kecamatan' => $id_kecamatan
+                ])->row_array();
+
+            $this->db->select_sum('n_pemanfaatan');
+            $bobot_p = $this->db->get_where('klasifikasi', [
+                'id_kecamatan' => $id_kecamatan
+                ])->row_array();
+
+
             /** Mencari nilai max ketersedian */
             $this->db->select_max('n_ketersediaan');
             $data_k = $this->db->get_where('klasifikasi', [
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
 
-
             $this->db->select_max('n_akses');
             $data_a = $this->db->get_where('klasifikasi', [
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
-
 
             $this->db->select_max('n_pemanfaatan');
             $data_p = $this->db->get_where('klasifikasi', [
                 'id_kecamatan' => $id_kecamatan
             ])->row_array();
 
-            /** Normalisasi */
+
             foreach ($data as $dt_normal) {
                 $nk = $dt_normal['n_ketersediaan'];
                 $na = $dt_normal['n_akses'];
                 $np = $dt_normal['n_pemanfaatan'];
 
+                /** Normalisasi */
                 $k_normal = $nk / $data_k['n_ketersediaan'];
                 $a_normal = $na / $data_a['n_akses'];
                 $p_normal = $np / $data_p['n_pemanfaatan'];
-
-                $b_ketersedian = 3.2;
-                $b_akses = 6.6;
-                $b_pemanfaatan = 6;
-
-                $hasil = ($b_ketersedian * $k_normal) + ($b_akses * $a_normal) + ($b_pemanfaatan * $p_normal);
+                
+                // perkalian antara vektor bobot dan matriks normalisai
+                $hasil = ($bobot_k['n_ketersediaan'] * $k_normal) + ($bobot_a['n_akses'] * $a_normal) + ($bobot_p['n_pemanfaatan'] * $p_normal);
 
                 $d = [
                     'id_desa' => $dt_normal['id_desa'],
