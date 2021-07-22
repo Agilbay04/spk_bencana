@@ -351,8 +351,8 @@ class User extends CI_Controller
     /** ================================ USER UMUM ================================ */
     public function umum()
     {
-        $data['title'] = 'SPK-BP | User Umum';
-        $data['judul'] = 'User Umum';
+        $data['title'] = 'SPK-BP | Umum';
+        $data['judul'] = 'Umum';
 
         $id_akses = 3;
 
@@ -403,8 +403,8 @@ class User extends CI_Controller
         }
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'SPK-BP | User Umum';
-            $data['judul'] = 'User Umum';
+            $data['title'] = 'SPK-BP | Umum';
+            $data['judul'] = 'Umum';
 
             $id_akses = 2;
 

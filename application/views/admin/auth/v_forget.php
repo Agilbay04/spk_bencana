@@ -21,7 +21,7 @@
                 </div>
             </form>
             <p class="mb-0">
-                <a href="<?= base_url('admin/auth') ?>" class="text-teal">Kembali ke login</a>
+                <a href="<?= base_url('admin/auth') ?>" class="text-teal">Kembali ke tampilan masuk</a>
             </p>
         </div>
         <!-- /.login-card-body -->

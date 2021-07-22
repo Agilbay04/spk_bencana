@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -43,7 +43,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Status</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -91,7 +91,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Status</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -137,13 +137,13 @@
                             <?= form_error('em_ptgs', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="psw_ptgs" class="form-control" id="" placeholder="Masukkan Password..." value="<?= set_value('psw_ptgs'); ?>" required>
+                            <label for="exampleInputPassword1">Kata Sandi</label>
+                            <input type="password" name="psw_ptgs" class="form-control" id="" placeholder="Masukkan Kata Sandi..." value="<?= set_value('psw_ptgs'); ?>" required>
                             <?= form_error('psw_ptgs', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Ulangi Password</label>
-                            <input type="password" name="psw_ptgs1" class="form-control" id="" placeholder="Ketik Ulang Password..." value="<?= set_value('psw_ptgs1'); ?>" required>
+                            <label for="exampleInputPassword1">Ulangi Kata Sandi</label>
+                            <input type="password" name="psw_ptgs1" class="form-control" id="" placeholder="Ketik Ulang Kata Sandi..." value="<?= set_value('psw_ptgs1'); ?>" required>
                             <?= form_error('psw_ptgs1', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-teal">
-                    <h4 class="modal-title font-weight-bold text-uppercase">Tambah Data</h4>
+                    <h4 class="modal-title font-weight-bold text-uppercase">Edit Data</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -191,17 +191,17 @@
                                 <?= form_error('em_ptgs1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-secondary text-uppercase font-weight-bold btn-batalpsw"><i class="fas fa-ban"></i> Batal Ubah Password</button>
-                                <button type="button" class="btn btn-primary text-uppercase font-weight-bold btn-ubahpsw"><i class="fas fa-lock"></i> Ubah Password</button>
+                                <button type="button" class="btn btn-secondary text-uppercase font-weight-bold btn-batalpsw"><i class="fas fa-ban"></i> Batal Ubah Kata Sandi</button>
+                                <button type="button" class="btn btn-primary text-uppercase font-weight-bold btn-ubahpsw"><i class="fas fa-lock"></i> Ubah Kata Sandi</button>
                             </div>
                             <div class="form-group psw">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" name="psw_ptgs1" class="form-control" id="" placeholder="Masukkan Password..." value="<?= set_value('psw_ptgs1'); ?>">
+                                <label for="exampleInputPassword1">Kata Sandi</label>
+                                <input type="password" name="psw_ptgs1" class="form-control" id="" placeholder="Masukkan Kata Sandi..." value="<?= set_value('psw_ptgs1'); ?>">
                                 <?= form_error('psw_ptgs1', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group psw1">
-                                <label for="exampleInputPassword1">Ulangi Password</label>
-                                <input type="password" name="psw_ptgs2" class="form-control" id="" placeholder="Ketik Ulang Password..." value="<?= set_value('psw_ptgs2'); ?>">
+                                <label for="exampleInputPassword1">Ulangi Kata Sandi</label>
+                                <input type="password" name="psw_ptgs2" class="form-control" id="" placeholder="Ketik Ulang Kata Sandi..." value="<?= set_value('psw_ptgs2'); ?>">
                                 <?= form_error('psw_ptgs2', '<small class="text-danger">', '</small>'); ?>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <input type="text" name="id_ptgs" value="<?= $p['id_user']; ?>" hidden>
-                            <p>Apakah anda ingin menghapus user <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
+                            <p>Apakah anda ingin menghapus pengguna <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -263,7 +263,7 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <input type="text" name="id_ptgs" value="<?= $p['id_user']; ?>" hidden>
-                            <p>Apakah anda ingin menonaktifkan user <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
+                            <p>Apakah anda ingin menonaktifkan pengguna <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -293,7 +293,7 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <input type="text" name="id_ptgs" value="<?= $p['id_user']; ?>" hidden>
-                            <p>Apakah anda ingin mengaktifkan user <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
+                            <p>Apakah anda ingin mengaktifkan pengguna <span class="font-weight-bold"><?= $p['nama']; ?></span>?</p>
                         </div>
                         <!-- /.card-body -->
                     </div>

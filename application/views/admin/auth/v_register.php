@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Masukkan password..." value="<?= set_value('password'); ?>">
+                    <input type="password" name="password" class="form-control" placeholder="Masukkan Kata Sandi..." value="<?= set_value('password'); ?>">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock text-teal"></span>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password1" class="form-control" placeholder="Ketik ulang password..." value="<?= set_value('password1'); ?>">
+                    <input type="password" name="password1" class="form-control" placeholder="Ketik Ulang Kata Sandi..." value="<?= set_value('password1'); ?>">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock text-teal"></span>
@@ -61,7 +61,7 @@
                 </div>
             </form>
             <p class="mb-0">
-                <a href="<?= base_url('admin/auth') ?>" class="text-teal">Sudah punya akun? Login disini</a>
+                <a href="<?= base_url('admin/auth') ?>" class="text-teal">Sudah punya akun? Masuk disini</a>
             </p>
         </div>
         <!-- /.login-card-body -->

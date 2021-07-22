@@ -5,11 +5,11 @@
     <!-- /.login-logo -->
     <div class="card login-card shadow-lg">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Ubah Password</p>
+            <p class="login-box-msg">Ubah Kata Sandi</p>
 
             <form action="<?= base_url('admin/auth') ?>" method="post">
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password baru...">
+                    <input type="password" class="form-control" placeholder="Kata Sandi Baru...">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock text-teal"></span>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Ketik ulang password baru...">
+                    <input type="password" class="form-control" placeholder="Ketik Ulang Kata Sandi Baru...">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock text-teal"></span>

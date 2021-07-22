@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -41,10 +41,10 @@
                                     <th>No</th>
                                     <th>ID</th>
                                     <th>Nama Kriteria</th>
-                                    <th>Range</th>
+                                    <th>Jarak</th>
                                     <th>Nilai</th>
                                     <th>Keterangan</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -76,10 +76,10 @@
                                     <th>No</th>
                                     <th>ID</th>
                                     <th>Nama Kriteria</th>
-                                    <th>Range</th>
+                                    <th>Jarak</th>
                                     <th>Nilai</th>
                                     <th>Keterangan</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -125,8 +125,8 @@
                             <?= form_error('kriteria', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Range</label>
-                            <input type="text" name="range" class="form-control" id="" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." value="<?= set_value('range'); ?>" required>
+                            <label for="exampleInputEmail1">Jarak</label>
+                            <input type="text" name="range" class="form-control" id="" placeholder="Tentukan jarak contoh: x <= 3, 3 <= x <= 10, dst..." value="<?= set_value('range'); ?>" required>
                             <?= form_error('range', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -165,7 +165,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-teal">
-                    <h4 class="modal-title font-weight-bold text-uppercase">Tambah Data</h4>
+                    <h4 class="modal-title font-weight-bold text-uppercase">Edit Data</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -188,8 +188,8 @@
                                 <?= form_error('kriteria1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Range</label>
-                                <input type="text" name="range1" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Tentukan range contoh: x <= 3, 3 <= x <= 10, dst..." required>
+                                <label for="exampleInputEmail1">Jarak</label>
+                                <input type="text" name="range1" class="form-control" id="" value="<?= $himp['range']; ?>" placeholder="Tentukan jarak contoh: x <= 3, 3 <= x <= 10, dst..." required>
                                 <?= form_error('range1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">

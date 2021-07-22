@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Beranda</a></li>
                         <li class="breadcrumb-item active"><?= $judul; ?></li>
                     </ol>
                 </div>
@@ -20,6 +20,59 @@
 
         </div><!-- /.container-fluid -->
     </section>
+
+    <!-- Keterangan content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-center bg-gradient-gray-dark">
+                        <h5 class="font-weight-bold text-uppercase">Petunjuk pengisian jarak kriteria</h5>
+                    </div>
+                    <?php $no = 1; ?>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-striped align-items-center">
+                            <thead>
+                                <tr class="align-items-center text-center">
+                                    <th>No</th>
+                                    <th>Kriteria</th>
+                                    <th>Jarak</th>
+                                    <th>Nilai</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($himpunan as $himp) : ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no++; ?></td>
+                                        <td><?= $himp['nm_kriteria']; ?></td>
+                                        <td><?= $himp['range']; ?></td>
+                                        <td><?= $himp['nilai']; ?></td>
+                                        <td><?= $himp['keterangan']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot>
+                                <tr class="align-items-center text-center">
+                                    <th>No</th>
+                                    <th>Kriteria</th>
+                                    <th>Jarak</th>
+                                    <th>Nilai</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
 
     <!-- Main content -->
     <section class="content">
@@ -45,7 +98,7 @@
                                     <th>Ketersediaan Pangan</th>
                                     <th>Akses Pangan</th>
                                     <th>Pemanfaatan Pangan</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -82,7 +135,7 @@
                                     <th>Ketersediaan Pangan</th>
                                     <th>Akses Pangan</th>
                                     <th>Pemanfaatan Pangan</th>
-                                    <th>Terakhir diupdate</th>
+                                    <th>Terakhir diperbarui</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -135,18 +188,18 @@
                             <?= form_error('nm_ds', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Range Ketersediaan</label>
-                            <input type="number" name="r_ketersediaan" class="form-control" id="" placeholder="Range Ketersediaan..." value="<?= set_value('r_ketersediaan'); ?>" required>
+                            <label for="exampleInputEmail1">Jarak Ketersediaan</label>
+                            <input type="number" name="r_ketersediaan" class="form-control" id="" placeholder="Jarak Ketersediaan..." value="<?= set_value('r_ketersediaan'); ?>" required>
                             <?= form_error('r_ketersediaan', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Range Akses</label>
-                            <input type="number" name="r_akses" class="form-control" id="" placeholder="Range Akses..." value="<?= set_value('r_akses'); ?>" required>
+                            <label for="exampleInputEmail1">Jarak Akses</label>
+                            <input type="number" name="r_akses" class="form-control" id="" placeholder="Jarak Akses..." value="<?= set_value('r_akses'); ?>" required>
                             <?= form_error('r_akses', '<small class="text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Range Pemanfaatan</label>
-                            <input type="number" name="r_pemanfaatan" class="form-control" id="" placeholder="Range Pemanfaatan..." value="<?= set_value('r_pemanfaatan'); ?>" required>
+                            <label for="exampleInputEmail1">Jarak Pemanfaatan</label>
+                            <input type="number" name="r_pemanfaatan" class="form-control" id="" placeholder="Jarak Pemanfaatan..." value="<?= set_value('r_pemanfaatan'); ?>" required>
                             <?= form_error('r_pemanfaatan', '<small class="text-danger">', '</small>') ?>
                         </div>
                     </div>
@@ -203,18 +256,18 @@
                                 <?= form_error('nm_kec1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Range Ketersediaan</label>
-                                <input type="number" name="r_ketersediaan1" class="form-control" id="" placeholder="Range Ketersediaan..." value="<?= $kls['r_ketersediaan']; ?>" required>
+                                <label for="exampleInputEmail1">Jarak Ketersediaan</label>
+                                <input type="number" name="r_ketersediaan1" class="form-control" id="" placeholder="Jarak Ketersediaan..." value="<?= $kls['r_ketersediaan']; ?>" required>
                                 <?= form_error('r_ketersediaan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Range Akses</label>
-                                <input type="number" name="r_akses1" class="form-control" id="" placeholder="Range Akses..." value="<?= $kls['r_akses']; ?>" required>
+                                <label for="exampleInputEmail1">Jarak Akses</label>
+                                <input type="number" name="r_akses1" class="form-control" id="" placeholder="Jarak Akses..." value="<?= $kls['r_akses']; ?>" required>
                                 <?= form_error('r_akses1', '<small class="text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Range Pemanfaatan</label>
-                                <input type="number" name="r_pemanfaatan1" class="form-control" id="" placeholder="Range Pemanfaatan..." value="<?= $kls['r_akses']; ?>" required>
+                                <label for="exampleInputEmail1">Jarak Pemanfaatan</label>
+                                <input type="number" name="r_pemanfaatan1" class="form-control" id="" placeholder="Jarak Pemanfaatan..." value="<?= $kls['r_akses']; ?>" required>
                                 <?= form_error('r_pemanfaatan1', '<small class="text-danger">', '</small>') ?>
                             </div>
                         </div>

@@ -25,7 +25,7 @@
                 <h2 class="font-weight-bold text-uppercase">Perangkingan Daerah Rawan Bencana Pangan Kabupaten Jember</h2>
                 <hr class="my-4">
                 <p>Sistem Informasi yang dapat membantu untuk menentukan daerah yang memiliki kerawanan bencana pangan di Kabupaten Jember.</p>
-                <a class="btn bg-gradient-teal btn-lg font-weight-bold text-uppercase" href="#" data-target="#card-dashboard" role="button">Selengkapnya</a>
+                <a class="btn bg-gradient-teal btn-lg font-weight-bold text-uppercase" href="<?= base_url('admin/about') ?>" data-target="#card-dashboard" role="button">Selengkapnya</a>
             </div>
         </div>
         <!-- /. End Jumbotron -->
@@ -94,7 +94,7 @@
                             <div class="inner">
                                 <h3><?= $jml_usr; ?></h3>
 
-                                <p>User Aktif</p>
+                                <p>Pengguna Aktif</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-users"></i>
