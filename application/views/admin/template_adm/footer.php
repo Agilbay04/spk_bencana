@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">SPK - BP</a>.</strong>
+    <strong>Copyright &copy; 2021 <a href="<?= base_url('admin/dashboard'); ?>" class="text-teal">Sistem Pendukung Keputusan - Perangkingan Daerah Rawan Bencana Pangan Kabupaten Jember</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 1.0.0

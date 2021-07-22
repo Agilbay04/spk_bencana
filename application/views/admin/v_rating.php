@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- Notifikasi -->
-        <?= $this->session->flashdata('notif'); ?>
+        <!-- <?= $this->session->flashdata('notif'); ?> -->
         <!-- /. Notifikasi -->
 
         <div class="row">

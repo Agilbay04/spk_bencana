@@ -21,59 +21,6 @@
         </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Keterangan content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header text-center bg-gradient-gray-dark">
-                        <h5 class="font-weight-bold text-uppercase">Petunjuk pengisian range kriteria</h5>
-                    </div>
-                    <?php $no = 1; ?>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example2" class="table table-bordered table-striped align-items-center">
-                            <thead>
-                                <tr class="align-items-center text-center">
-                                    <th>No</th>
-                                    <th>Kriteria</th>
-                                    <th>Range</th>
-                                    <th>Nilai</th>
-                                    <th>Keterangan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($himpunan as $himp) : ?>
-                                    <tr>
-                                        <td class="text-center"><?= $no++; ?></td>
-                                        <td><?= $himp['nm_kriteria']; ?></td>
-                                        <td><?= $himp['range']; ?></td>
-                                        <td><?= $himp['nilai']; ?></td>
-                                        <td><?= $himp['keterangan']; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                            <tfoot>
-                                <tr class="align-items-center text-center">
-                                    <th>No</th>
-                                    <th>Kriteria</th>
-                                    <th>Range</th>
-                                    <th>Nilai</th>
-                                    <th>Keterangan</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
